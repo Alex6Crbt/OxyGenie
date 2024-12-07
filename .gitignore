@@ -1,3 +1,7 @@
+dataset/
+docs/
+model_weights_*
+tes*
 # General
 .DS_Store
 .AppleDouble

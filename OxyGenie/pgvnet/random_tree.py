@@ -14,6 +14,27 @@ from tqdm import tqdm
 
 # Classe pour la génération de branches
 class BranchGen:
+    """
+   Classe pour générer des branches à partir d'un point de départ, en utilisant des paramètres de longueur et d'angle.
+
+   Paramètres
+   ----------
+   L_p : tuple
+       Tuple contenant la longueur moyenne et l'écart-type pour la longueur des branches (L_p[0] pour la moyenne, L_p[1] pour la variation).
+   angle_p : tuple
+       Tuple contenant l'angle initial (angle_p[0]) et l'écart-type (angle_p[1]) pour l'orientation des branches.
+   n_branch : int
+       Nombre de branches à générer.
+   L_max : float ou None, optionnel
+       Longueur maximale pour chaque branche. Si None, il n'y a pas de longueur maximale.
+
+   Méthodes
+   --------
+   __call__(grid, branch)
+       Génère de nouvelles branches sur un grid, à partir de points existants dans `branch`, et retourne le grid mis à jour ainsi que les nouvelles branches.
+   __repr__()
+       Retourne une représentation sous forme de chaîne de la classe `BranchGen`.
+   """
     def __init__(self, L_p, angle_p, n_branch, L_max=None):
         self.L_p = L_p  # Paramètres de longueur (moyenne, variation)
         self.angle_p = angle_p  # Paramètres d'angle (initial, écart-type)
@@ -21,6 +42,23 @@ class BranchGen:
         self.L_max = L_max  # Longueur maximale pour chaque branche
     
     def __call__(self, grid, branch):
+        """
+        Génère de nouvelles branches sur une grille donnée.
+
+        Paramètres
+        ----------
+        grid : ndarray
+            La grille de dimensions (H, W), représentant l'espace où les branches vont être dessinées.
+        branch : list of tuples
+            Liste des coordonnées des points de départ des branches.
+
+        Retourne
+        -------
+        new_grid : ndarray
+            La grille mise à jour avec les nouvelles branches.
+        all_new_branch : list of tuples
+            Liste de toutes les nouvelles coordonnées des branches générées.
+        """
         new_branchs = []
         grid_size_x, grid_size_y = grid.shape
         new_grid = grid.copy()
@@ -66,10 +104,42 @@ class BranchGen:
 
 # Classe pour la dilatation
 class DilationN:
+    """
+    Classe pour effectuer une dilatation sur une grille un certain nombre d'itérations.
+
+    Paramètres
+    ----------
+    n_iter : int
+        Le nombre d'itérations de dilatation à effectuer.
+
+    Méthodes
+    --------
+    __call__(grid, branch)
+        Applique la dilatation sur le grid et retourne le grid dilaté ainsi que les branches non modifiées.
+    __repr__()
+        Retourne une représentation sous forme de chaîne de la classe `DilationN`.
+    """
     def __init__(self, n_iter=1):
         self.n_iter = n_iter  # Nombre d'itérations de dilatation
     
     def __call__(self, grid, branch):
+        """
+        Applique une dilatation sur la grille donnée.
+
+        Paramètres
+        ----------
+        grid : ndarray
+            La grille de dimensions (H, W) à dilater.
+        branch : list of tuples
+            Liste des coordonnées des branches (non modifiée par la dilatation).
+
+        Retourne
+        -------
+        new_grid : ndarray
+            La grille dilatée.
+        branch : list of tuples
+            Liste des branches inchangée.
+        """
         new_grid = grid.copy()
         for _ in range(self.n_iter):
             new_grid = dilation(new_grid)
@@ -181,18 +251,18 @@ if __name__=="__main__":
     # plt.show()
     
     # Générer n images différentes
-    n = 3
-    fig, axes = plt.subplots(n, n, figsize=(10, 10))
+    n = 5
+    fig, axes = plt.subplots(1, n, figsize=(25, 5))
     
-    for i in range(n**2):
+    for i in range(n):
         np.random.seed(i)  # Modifier la graine aléatoire pour chaque image
         ngrid, nbranchs = sequence(grid.copy(), [(start_x, start_y)])  # Initialisation avec une liste de branches vide
-        ax = axes[i // n, i % n]
+        ax = axes[i]#[i // n, i % n]
         ax.imshow(ngrid, cmap=custom_cmap_lavande)
-        ax.axis("tight")
+        # ax.axis("equal")
         ax.xaxis.set_visible(False)  # Cache uniquement l'axe x
         ax.yaxis.set_visible(False)  # Cache uniquement l'axe y
-        ax.set_title(f"Gen n°{i+1}, circularité = {sp_ratio(ngrid)*100:0.1f}%")
+        # ax.set_title(f"Gen n°{i+1}, circularité = {sp_ratio(ngrid)*100:0.1f}%")
     
     plt.tight_layout()
     plt.show()
