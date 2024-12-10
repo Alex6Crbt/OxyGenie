@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Dec  3 23:00:58 2024
-
-@author: alexis
-"""
-
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.draw import line
@@ -206,12 +198,12 @@ def simple_generation(N=1, grid_size=1000, Lc=30, lrang=10, initial_angle=0, alp
     sequence = PGPipeline([
         BranchGen((Lc, lrang), (initial_angle, alpha / 5), 1),
         DilationN(3),
-        BranchGen((Lc, lrang), (2 * np.pi, alpha / 3), 4),
+        BranchGen((Lc, lrang), (2 * np.pi, alpha / 3), 6),
         DilationN(1),
-        BranchGen((Lc, lrang), (2 * np.pi, alpha / 3), 8, 500),
+        BranchGen((Lc, lrang), (2 * np.pi, alpha / 3), 8),
         DilationN(1),
-        BranchGen((Lc, lrang), (2 * np.pi, alpha / 2), 8, 100),
-        DilationN(1),
+        BranchGen((Lc, lrang), (2 * np.pi, alpha / 2), 8, 500),
+        DilationN(2),
         PGVNet(5),
     ])
     # Initialiser un tableau pour stocker les N images générées

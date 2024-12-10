@@ -2,18 +2,24 @@
 from PIL import Image
 import os
 import numpy as np
-import torch
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset
 import random
 import torchvision.transforms.functional as TF
 
 
-class ImageDataset(Dataset):
+class SimuDataset(Dataset):
     def __init__(self, dataset_path, transform=None, random_flip=True):
-        self.x_dir = os.path.join(dataset_path, "X")
+        """
+        x_dir : répertoire contenant les images (X/)
+        y_dir : répertoire contenant les résultats (Y/)
+        transform : transformations à appliquer aux images (par exemple, normalisation)
+        """
+        self.x1_dir = os.path.join(dataset_path, "X_1")
+        self.x2_dir = os.path.join(dataset_path, "X_2")
         self.y_dir = os.path.join(dataset_path, "Y")
         # Liste des fichiers d'images
-        self.x_files = sorted(os.listdir(self.x_dir))
+        self.x1_files = sorted(os.listdir(self.x1_dir))
+        self.x2_files = sorted(os.listdir(self.x2_dir))
         # Liste des fichiers de résultats
         self.y_files = sorted(os.listdir(self.y_dir))
         # Transformations à appliquer (par exemple, normalisation)
@@ -22,7 +28,7 @@ class ImageDataset(Dataset):
 
     def __len__(self):
         """Retourne le nombre d'échantillons"""
-        return len(self.x_files)
+        return len(self.x1_files)
 
     def __getitem__(self, idx):
         """
@@ -30,30 +36,35 @@ class ImageDataset(Dataset):
         idx : indice de l'échantillon
         """
         # Charger l'image et le résultat
-        x_path = os.path.join(self.x_dir, self.x_files[idx])
+        x1_path = os.path.join(self.x1_dir, self.x1_files[idx])
+        x2_path = os.path.join(self.x2_dir, self.x2_files[idx])
         y_path = os.path.join(self.y_dir, self.y_files[idx])
 
         # Charger l'image (convertir en float32 si nécessaire)
-        x = np.load(x_path).astype(np.float32)
+        x1 = np.load(x1_path).astype(np.float32)
+        x2 = np.load(x2_path).astype(np.float32)
         # Charger le résultat (en float32)
         y = np.load(y_path).astype(np.float32)
 
-        x = -np.log(x)
+        # x2 = -np.log(x2)
         # y = np.log(y)
         # Trouver les valeurs min et max pour chaque image
-        x_min, x_max = np.min(x), np.max(x)
+        x_min, x_max = np.min(x1), np.max(x1)
+
+        x2[0] = x2[0] / 10
+        x2[1] = x2[1] * 100
         # y_min, y_max = np.min(y), np.max(y)
-        self.x_min = x_min
-        self.x_max = x_max
         # self.y_min = y_min
         # self.y_max = y_max
 
         # Appliquer la normalisation Min-Max
-        x = (x - x_min) / (x_max - x_min)
+        x1 = (x1 - x_min) / (x_max - x_min)
         # y = (y - y_min) / (y_max - y_min)
         y = y / 100
         # Convertir en image PIL après normalisation
-        x = Image.fromarray(x)
+        x1 = Image.fromarray(x1)
+        x1 = x1.resize((512, 512))
+        # x2 = TF.to_tensor(x2)
         y = Image.fromarray(y)
 
         # Ajouter des dimensions supplémentaires si nécessaire (par exemple, pour les images en niveaux de gris)
@@ -69,16 +80,16 @@ class ImageDataset(Dataset):
         # Appliquer les transformations si spécifié
 
         if self.random_flip:
-            x, y = self.hvflip(x, y)
+            x1, y = self.hvflip(x1, y)
         else:
-            x = TF.to_tensor(x)
+            x1 = TF.to_tensor(x1)
             y = TF.to_tensor(y)
 
         if self.transform:
-            x = self.transform(x)
+            x1 = self.transform(x1)
             y = self.transform(y)
 
-        return x, y
+        return (x1, x2), y
 
     def hvflip(self, x, y):
         # Random horizontal flipping
@@ -97,16 +108,34 @@ class ImageDataset(Dataset):
 
         return x, y
 
-    def descale(self, x_scaled):
+    def descale(self, y_scaled):
         """
-        Dé-normalise les données mises à l'échelle entre [0, 1] à leur plage d'origine.
-        x_scaled : Tensor ou ndarray normalisé (entre 0 et 1)
+        Désnormalise les données mises à l'échelle entre [0, 1] à leur plage d'origine.
+        y_scaled : Tensor ou ndarray normalisé (entre 0 et 1)
         """
         # Vérifiez que les valeurs min et max existent
-        if not hasattr(self, 'x_min') or not hasattr(self, 'x_max'):
+        if not hasattr(self, 'y_min') or not hasattr(self, 'y_max'):
             raise ValueError(
-                "Les valeurs 'x_min' et 'x_max' doivent être définies pour descale.")
+                "Les valeurs 'y_min' et 'y_max' doivent être définies pour descale.")
 
-        # Calcul de la dé-normalisation
-        x_original = np.exp(x_scaled * (self.x_max - self.x_min) + self.x_min)
-        return x_original
+        # Calcul de la désnormalisation
+        y_original = y_scaled * (self.y_max - self.y_min) + self.y_min
+        return y_original
+
+
+if __name__ == "__main__":
+    import matplotlib.pyplot as plt
+    dataset = SimuDataset("dataset2", random_flip=True)
+    (X1, X2), Y = dataset[1]
+
+    fig, ax = plt.subplots(1, 2, figsize=(12, 6))
+
+    print(X2)
+
+    ax[0].imshow(X1[0])
+    ax[1].imshow(Y[0])
+
+    plt.show()
+    plt.figure()
+    plt.hist(Y[0].numpy().flatten(), bins=200)
+    plt.show()

@@ -1,5 +1,8 @@
 import torch
 import torch.nn as nn
+import torchvision.transforms.functional as TF
+import numpy as np
+from PIL import Image
 
 
 class DoubleConv(nn.Module):
@@ -42,15 +45,22 @@ class UpSample(nn.Module):
         return self.conv(x)
 
 
-class UNet(nn.Module):
+class EUNet(nn.Module):
     def __init__(self):
         super().__init__()
+
         self.down_1 = DownSample(1, 32)
         self.down_2 = DownSample(32, 64)
         self.down_3 = DownSample(64, 128)
         # self.down_4 = DownSample(in_chanels, out_chanels)
 
-        self.bottom = DoubleConv(128, 256)
+        self.embedding_layer = nn.Sequential(
+            nn.Linear(2, 128),   # Embedding of size 2 to match 256 channels
+            nn.ReLU(),
+            nn.Linear(128, 128),
+            nn.ReLU(),
+        )
+        self.bottom = DoubleConv(128, 128)
 
         self.up_1 = UpSample(256, 128)
         self.up_2 = UpSample(128, 64)
@@ -59,16 +69,39 @@ class UNet(nn.Module):
 
         self.out = nn.Conv2d(32, 1, kernel_size=3, padding=1)
 
-    def forward(self, x):
-        s1, d1 = self.down_1(x)
+    def forward(self, x1, x2):
+        s1, d1 = self.down_1(x1)
         s2, d2 = self.down_2(d1)
         s3, d3 = self.down_3(d2)
 
         b = self.bottom(d3)
+        embedding = self.embedding_layer(x2)
+        # Reshape to [batch_size, 256, 1, 1]
+        embedding = embedding.unsqueeze(-1).unsqueeze(-1)
+        # Match spatial dimensions
+        embedding = embedding.expand(-1, -1, b.size(2), b.size(3))
+        b_combined = torch.cat([b, embedding], 1)
 
-        u1 = self.up_1(b, s3)
+        u1 = self.up_1(b_combined, s3)
         u2 = self.up_2(u1, s2)
         u3 = self.up_3(u2, s1)
 
         y = self.out(u3)
         return y
+
+    @torch.no_grad
+    def predict(self, img, params):
+        test_image = img.copy()
+        x_min, x_max = np.min(test_image), np.max(test_image)
+        test_image = (test_image - x_min) / (x_max - x_min)
+        test_image = Image.fromarray(test_image).resize((512, 512))
+
+        im = TF.to_tensor(test_image).unsqueeze(0)
+
+        params = params.copy()
+        params[0] = params[0] / 10
+        params[1] = params[1] * 100
+        params = torch.tensor(params).unsqueeze(0)
+
+        result_np = self(im, params).squeeze().numpy()
+        return (result_np - np.min(result_np)) * 100

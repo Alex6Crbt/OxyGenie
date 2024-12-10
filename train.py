@@ -1,19 +1,12 @@
-from PIL import Image
-import os
-import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch.utils.data import Dataset, DataLoader
-import matplotlib.pyplot as plt
-import random
-import torchvision.transforms.functional as TF
-from torchsummary import summary
+from torch.utils.data import DataLoader, random_split
 from tqdm import tqdm
-from torch.utils.data import random_split, DataLoader
+from OxyGenie.learn import EUNet, SimuDataset
 
 # Charger le dataset complet
-dataset = ImageDataset("dataset")  # , transform)
+dataset = SimuDataset("dataset2")  # , transform)
 
 # Définir les tailles pour train/test
 train_size = int(0.8 * len(dataset))  # 80% pour l'entraînement
@@ -31,8 +24,8 @@ test_loader = DataLoader(test_dataset, batch_size=16, shuffle=False)
 # dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
 # Créer l'instance du modèle
-model = UNet()
-summary(model, input_size=(1, 256, 256))
+model = EUNet()
+# summary(model, input_size=(16, 1, 256*2, 256*2))
 
 # Définir une fonction de perte et un optimiseur
 criterion = nn.MSELoss()  # Perte MSE pour la reconstruction d'image
@@ -40,7 +33,7 @@ optimizer = optim.Adam(model.parameters(), lr=1e-3)
 
 
 # Entraînement
-num_epochs = 2
+num_epochs = 6
 for epoch in range(num_epochs):
     # Entraînement
     model.train()
@@ -50,7 +43,7 @@ for epoch in range(num_epochs):
             optimizer.zero_grad()
 
             # Forward pass
-            outputs = model(inputs)
+            outputs = model(inputs[0], inputs[1])
 
             # Calcul de la perte
             loss = criterion(outputs, targets)
@@ -65,14 +58,14 @@ for epoch in range(num_epochs):
             avg_train_loss = running_train_loss / (i + 1)
             t.set_postfix({"Train Loss": avg_train_loss, "Batch Loss": b_loss})
 
-    # Validation
+    # Evaluation
     model.eval()
     running_test_loss = 0.0
     with torch.no_grad():
         with tqdm(test_loader, desc=f"Epoch [{epoch+1}/{num_epochs}] Test", unit="batch") as t:
             for i, (inputs, targets) in enumerate(t):
                 # Forward pass uniquement
-                outputs = model(inputs)
+                outputs = model(inputs[0], inputs[1])
 
                 # Calcul de la perte
                 loss = criterion(outputs, targets)
@@ -85,3 +78,6 @@ for epoch in range(num_epochs):
     # Afficher un résumé de l'epoch
     print(
         f"Epoch [{epoch+1}/{num_epochs}] - Train Loss: {avg_train_loss:.4f}, Test Loss: {avg_test_loss:.4f}")
+
+
+torch.save(model.state_dict(), "model_weights_6E.pth")

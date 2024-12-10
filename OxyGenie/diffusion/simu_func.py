@@ -163,8 +163,8 @@ class FromPGVNet:
         params.C_ini = C
         print("Added initial C to params : params.C_ini")
         # Initialisation du coefficient de diffusion :
-        D = params.D * np.ones((nx, ny)) * (M > 200) + params.D / 50 * np.ones((nx, ny)) * ((M <= 200) & (
-            M > 1)) + params.D / 10 * np.ones((nx, ny)) * (M <= 1)  # +params.D/1000*np.ones((nx, ny))*m2
+        D = params.D/2 * np.ones((nx, ny)) * (M > 200) + params.D / 3 * np.ones((nx, ny)) * ((M <= 200) & (
+            M > 1)) + params.D * np.ones((nx, ny)) * (M <= 1)  # +params.D/1000*np.ones((nx, ny))*m2
         params.D_mat = D
         print("Added Diff mat to params : params.D_mat")
         dDx = np.zeros((nx, ny))
@@ -269,13 +269,16 @@ class FromCustom:
         return C, D, k, alphax, alphay, betax, betay
 
 
-def run_simulation(params, init_method, C_0_cst=True, save_last_only=False):
+def run_simulation(params, init_method, C_0_cst=True, save_last_only=False, C0 = None):
     C, D, k, alphax, alphay, betax, betay = init_method(params)
 
     if C_0_cst:
         C_i = C.copy()
     else:
         C_i = None
+    
+    if C0 is not None:
+        C = C0
 
     dt = params.dt
     crit_stab(alphax, alphay)

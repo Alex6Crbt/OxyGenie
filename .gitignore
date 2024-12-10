@@ -1,6 +1,8 @@
 dataset/
+dataset2/
 docs/
 model_weights_*
+model2_weights_*
 tes*
 # General
 .DS_Store

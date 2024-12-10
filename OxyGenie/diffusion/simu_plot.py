@@ -8,7 +8,8 @@ from .simu_func import N_tot
 
 class Simu_plot:
     def __init__(self):
-        plt.style.use("dark_background")
+        # plt.style.use("dark_background")
+        pass
 
     @classmethod
     def simple(self, params, C_result, D=None):
@@ -17,22 +18,22 @@ class Simu_plot:
             im = ax1.imshow(C_result, extent=(0, params.Lx, 0,
                                               params.Ly), origin='lower', cmap='hot')
             plt.colorbar(im, ax=ax1, label="Concentration")
-            ax1.set_xlabel("$x \\ (m)$")
-            ax1.set_ylabel("$y \\ (m)$")
+            ax1.set_xlabel("$x \\ (cm)$")
+            ax1.set_ylabel("$y \\ (cm)$")
             ax1.set_title(f"Concentration finale après ${params.T:.1e} \\ s$")
         else:
             fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
             im = ax1.imshow(C_result, extent=(0, params.Lx, 0,
                                               params.Ly), origin='lower', cmap='hot')
             plt.colorbar(im, ax=ax1, label="Concentration")
-            ax1.set_xlabel("$x \\ (m)$")
-            ax1.set_ylabel("$y \\ (m)$")
+            ax1.set_xlabel("$x \\ (cm)$")
+            ax1.set_ylabel("$y \\ (cm)$")
             ax1.set_title(f"Concentration finale après ${params.T:.1e} \\ s$")
             im2 = ax2.imshow(D, extent=(0, params.Lx, 0, params.Ly),
                              origin='lower', cmap="coolwarm", norm=LogNorm())
             plt.colorbar(im2, ax=ax2, label="Coefficient de diffusion")
-            ax2.set_xlabel("$x \\ (m)$")
-            ax2.set_ylabel("$y \\ (m)$")
+            ax2.set_xlabel("$x \\ (cm)$")
+            ax2.set_ylabel("$y \\ (cm)$")
             ax2.set_title("Coefficient de diffusion")
             plt.show()
 
@@ -81,8 +82,8 @@ class Simu_plot:
 
         fig.colorbar(q, ax=ax, label="Flux de concentration")
 
-        plt.xlabel("$x \\ (m)$")
-        plt.ylabel("$y \\ (m)$")
+        plt.xlabel("$x \\ (cm)$")
+        plt.ylabel("$y \\ (cm)$")
         plt.show()
 
     @classmethod
@@ -100,8 +101,8 @@ class Simu_plot:
             0, params.Lx, 0, params.Ly), origin='lower', cmap='hot')  # , norm=LogNorm())
         plt.colorbar(im, ax=ax1, label="Concentration")
 
-        ax1.set_xlabel("$x \\ (m)$")
-        ax1.set_ylabel("$y \\ (m)$")
+        ax1.set_xlabel("$x \\ (cm)$")
+        ax1.set_ylabel("$y \\ (cm)$")
         ax1.set_title(f"Concentration finale après ${params.T:0.1e} \\ s$")
 
         line1, = ax2.plot(S)
@@ -121,7 +122,7 @@ class Simu_plot:
 
         ax3.set_xlim(0, params.Lx)
         # ax3.set_ylim(min(xc)*0.99, max(xc)*1.01)
-        ax3.set_xlabel("$x \\ (m)$")
+        ax3.set_xlabel("$l \\ (cm)$")
         ax3.set_ylabel("$C$")
         ax3.set_title("coupe de $C$ en x et y")
         ax3.grid(True, color='gray', linestyle='--', linewidth=0.5)
@@ -209,8 +210,8 @@ class Simu_plot:
 
         quiver = ax1.quiver(X, Y, pdC_dx / pc, pdC_dy / pc,
                             pc, cmap='plasma', scale=1e-0 / (2 * params.Lx),)
-        ax1.set_xlabel("$x \\ (m)$")
-        ax1.set_ylabel("$y \\ (m)$")
+        ax1.set_xlabel("$x \\ (cm)$")
+        ax1.set_ylabel("$y \\ (cm)$")
         ax1.set_title(f"Concentration finale après ${params.T:0.1e} \\ s$")
 
         # Préallocation des tableaux pour optimiser la mémoire
