@@ -46,7 +46,7 @@ nt_efficient = int(T_simu_rp * 5000)
 print(k_random, T_simu_rp, nt_efficient)
 
 params = {
-    "D": 1e-5, "k": k_random, "Lx": 0.05, "Ly": 0.05, "T": 0.1, "nt": 1000, "nx": 256 * 2, "ny": 256 * 2,
+    "D": 1e-5, "k": k_random, "Lx": 0.05, "Ly": 0.05, "T": 0.25, "nt": 2500, "nx": 256 * 2, "ny": 256 * 2,
     "initial_concentration": 100.0, "speed": 1, "step": 10,
 }
 simuparams = simu.SimulationParams(**params)
