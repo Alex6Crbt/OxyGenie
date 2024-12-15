@@ -402,6 +402,6 @@ In this example, we will demonstrate how to generate a vascular network using **
 
 **Result**
 
-   .. image:: _static/testgrid.png
+   .. image:: _static/grid.png
       :align: center
       :width: 90%
