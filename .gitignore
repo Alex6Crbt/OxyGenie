@@ -3,7 +3,7 @@ dataset2/
 # docs/
 
 model_weights_*
-model2_weights_*
+model2_weights_4*
 tes*
 # General
 .DS_Store
