@@ -8,6 +8,14 @@ import torchvision.transforms.functional as TF
 
 
 class SimuDataset(Dataset):
+    """
+    A PyTorch dataset class for loading and preprocessing simulation data.
+
+    This dataset handles input features (`X_1`, `X_2`) and corresponding target outputs (`Y`),
+    applying specified transformations and augmentations during loading.
+    
+    """
+    
     def __init__(self, dataset_path, transform=None, random_flip=True):
         """
         x_dir : répertoire contenant les images (X/)
@@ -92,6 +100,10 @@ class SimuDataset(Dataset):
         return (x1, x2), y
 
     def hvflip(self, x, y):
+        """
+        Applies random horizontal and vertical flips to inputs and targets.
+        
+        """
         # Random horizontal flipping
         if random.random() > 0.5:
             x = TF.hflip(x)
@@ -110,8 +122,7 @@ class SimuDataset(Dataset):
 
     def descale(self, y_scaled):
         """
-        Désnormalise les données mises à l'échelle entre [0, 1] à leur plage d'origine.
-        y_scaled : Tensor ou ndarray normalisé (entre 0 et 1)
+        Converts normalized target data back to its original range.
         """
         # Vérifiez que les valeurs min et max existent
         if not hasattr(self, 'y_min') or not hasattr(self, 'y_max'):

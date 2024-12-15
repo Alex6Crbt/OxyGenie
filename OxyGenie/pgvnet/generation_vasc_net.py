@@ -8,28 +8,21 @@ from tqdm import tqdm
 
 
 class BranchGen:
+    r"""
+    Generates branching structures on a 2D grid with random angles and lengths.
+    
+    Parameters
+    ----------
+    - L_p (tuple): Length parameters (mean, range).
+    - angle_p (tuple): Angle parameters (initial angle, angle standard deviation).
+    - n_branch (int): Number of branches to generate.
+    - L_max (float, optional): Maximum branch length.
+    
+    
+    .. warning::
+        - Return via `__call__`
+
     """
-   Classe pour générer des branches à partir d'un point de départ, en utilisant des paramètres de longueur et d'angle.
-
-   Paramètres
-   ----------
-   L_p : tuple
-       Tuple contenant la longueur moyenne et l'écart-type pour la longueur des branches (L_p[0] pour la moyenne, L_p[1] pour la variation).
-   angle_p : tuple
-       Tuple contenant l'angle initial (angle_p[0]) et l'écart-type (angle_p[1]) pour l'orientation des branches.
-   n_branch : int
-       Nombre de branches à générer.
-   L_max : float ou None, optionnel
-       Longueur maximale pour chaque branche. Si None, il n'y a pas de longueur maximale.
-
-   Méthodes
-   --------
-   __call__(grid, branch)
-       Génère de nouvelles branches sur un grid, à partir de points existants dans `branch`, et retourne le grid mis à jour ainsi que les nouvelles branches.
-   __repr__()
-       Retourne une représentation sous forme de chaîne de la classe `BranchGen`.
-   """
-
     def __init__(self, L_p, angle_p, n_branch, L_max=None):
         self.L_p = L_p  # Paramètres de longueur (moyenne, variation)
         self.angle_p = angle_p  # Paramètres d'angle (initial, écart-type)
@@ -37,23 +30,6 @@ class BranchGen:
         self.L_max = L_max  # Longueur maximale pour chaque branche
 
     def __call__(self, grid, branch):
-        """
-        Génère de nouvelles branches sur une grille donnée.
-
-        Paramètres
-        ----------
-        grid : ndarray
-            La grille de dimensions (H, W), représentant l'espace où les branches vont être dessinées.
-        branch : list of tuples
-            Liste des coordonnées des points de départ des branches.
-
-        Retourne
-        -------
-        new_grid : ndarray
-            La grille mise à jour avec les nouvelles branches.
-        all_new_branch : list of tuples
-            Liste de toutes les nouvelles coordonnées des branches générées.
-        """
         new_branchs = []
         grid_size_x, grid_size_y = grid.shape
         new_grid = grid.copy()
@@ -101,43 +77,23 @@ class BranchGen:
 
 # Classe pour la dilatation
 class DilationN:
-    """
-    Classe pour effectuer une dilatation sur une grille un certain nombre d'itérations.
-
-    Paramètres
+    r"""
+    Applies dilation on the grid for a specified number of iterations.
+    
+    Parameters
     ----------
-    n_iter : int
-        Le nombre d'itérations de dilatation à effectuer.
+    - n_iter (int): Number of dilation iterations.
 
-    Méthodes
-    --------
-    __call__(grid, branch)
-        Applique la dilatation sur le grid et retourne le grid dilaté ainsi que les branches non modifiées.
-    __repr__()
-        Retourne une représentation sous forme de chaîne de la classe `DilationN`.
+
+    .. warning::
+        - Return via `__call__`
+        
     """
-
     def __init__(self, n_iter=1):
         self.n_iter = n_iter  # Nombre d'itérations de dilatation
 
     def __call__(self, grid, branch):
-        """
-        Applique une dilatation sur la grille donnée.
 
-        Paramètres
-        ----------
-        grid : ndarray
-            La grille de dimensions (H, W) à dilater.
-        branch : list of tuples
-            Liste des coordonnées des branches (non modifiée par la dilatation).
-
-        Retourne
-        -------
-        new_grid : ndarray
-            La grille dilatée.
-        branch : list of tuples
-            Liste des branches inchangée.
-        """
         new_grid = grid.copy()
         for _ in range(self.n_iter):
             new_grid = dilation(new_grid)
@@ -149,6 +105,18 @@ class DilationN:
 
 
 class PGVNet:
+    r"""
+    Performs dilation and grid updates using a network-like approach.
+    
+    Parameters
+    ----------
+    - n_iter (int): Number of dilation iterations.
+
+
+    .. warning::
+        - Return via `__call__`
+
+    """
     def __init__(self, n_iter):
         self.dilation = DilationN(n_iter)
 
@@ -167,6 +135,18 @@ class PGVNet:
 
 
 class PGPipeline:
+    r"""
+    Orchestrates a sequence of operations on the grid.
+    
+    Parameters
+    ----------
+    - operations (list): List of operations (e.g., BranchGen, DilationN, etc.).
+
+
+    .. warning::
+        - Return via `__call__`
+        
+    """
     def __init__(self, operations):
         self.operations = operations
 
@@ -182,6 +162,9 @@ class PGPipeline:
 
 
 def sp_ratio(grid):
+    r"""
+    Computes the surface-to-perimeter ratio of a given grid.
+    """
     ngrid = np.zeros(grid.shape)
     ngrid[grid > 2] = 1
     dilngrid = DilationN(1)(ngrid, [])[0]
@@ -191,6 +174,35 @@ def sp_ratio(grid):
 
 
 def simple_generation(N=1, grid_size=1000, Lc=30, lrang=10, initial_angle=0, alpha=np.pi / 4):
+    r"""
+    Generates a set of vascular networks using a procedural pipeline.
+    
+    This function creates vascular networks by simulating branching patterns 
+    with specified parameters for grid size, branch lengths, and angles.
+    
+    Parameters
+    ----------
+    N : int
+        The number of vascular networks to generate.
+    grid_size : int
+        The size of the grid for each vascular network.
+    Lc : int
+        The mean length of branches in the vascular network.
+    lrang : int
+        The variation range for branch lengths around the mean length.
+    initial_angle : float
+        The initial branching angle for the network.
+    alpha : float
+        The spread of branching angles from the initial angle.
+    
+    Returns
+    -------
+    grids : list(ndarray)
+        An array containing the generated vascular networks, where each entry 
+        represents one grid.
+        
+    """
+    
     start_x, start_y = grid_size // 2, grid_size - 10  # Bas-centre
     grid = np.zeros((grid_size, grid_size), dtype=np.uint8)
 

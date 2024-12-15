@@ -29,9 +29,9 @@ sequence = pgv.PGPipeline([
     pgv.DilationN(3),
     pgv.BranchGen((Lc, lrang), (2 * np.pi, alpha / 3), 4),
     pgv.DilationN(1),
-    pgv.BranchGen((Lc, lrang), (2 * np.pi, alpha / 3), 8, 500),
+    pgv.BranchGen((Lc, lrang), (2 * np.pi, alpha / 3), 8, ),
     pgv.DilationN(1),
-    pgv.BranchGen((Lc, lrang), (2 * np.pi, alpha / 2), 8, 100),
+    pgv.BranchGen((Lc, lrang), (2 * np.pi, alpha / 2), 8,),
     pgv.DilationN(1),
     pgv.PGVNet(5),
 ])
@@ -57,7 +57,9 @@ for i in range(n):
     ax.imshow(ngrid, cmap="Purples")
     ax.xaxis.set_visible(False)  # Cache uniquement l'axe x
     ax.yaxis.set_visible(False)  # Cache uniquement l'axe y
-    ax.set_title(f"Gen n°{i+1}, circularité = {pgv.sp_ratio(ngrid)*100:0.1f}%")
+    ax.set_title(f"Gen n°{i+1}")#", circularité = {pgv.sp_ratio(ngrid)*100:0.1f}%")
 
 plt.tight_layout()
 plt.show()
+
+

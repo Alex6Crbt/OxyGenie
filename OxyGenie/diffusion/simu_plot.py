@@ -7,12 +7,17 @@ from .simu_func import N_tot
 
 
 class Simu_plot:
+    
     def __init__(self):
         # plt.style.use("dark_background")
         pass
 
     @classmethod
     def simple(self, params, C_result, D=None):
+        """
+        Generates a static plot showing the final concentration field. Optionally includes a plot of the diffusion coefficient if D is provided.
+
+        """
         if D is None:
             fig, ax1 = plt.subplots()
             im = ax1.imshow(C_result, extent=(0, params.Lx, 0,
@@ -39,6 +44,10 @@ class Simu_plot:
 
     @classmethod
     def champ_vect(self, params, L_result, i, s_ech=5):
+        """
+        Visualizes the concentration gradient as a vector field overlay on a concentration map for a specific time step.
+        
+        """
         fig, ax = plt.subplots(figsize=(10, 7))
         im = ax.imshow(L_result[i], extent=(0, params.Lx, 0, params.Ly),
                        origin='lower', cmap='viridis')  # Carte de concentration
@@ -87,7 +96,11 @@ class Simu_plot:
         plt.show()
 
     @classmethod
-    def anim(self, params, L_result):
+    def anim(self, params, L_result, anim=True):
+        """
+        Creates an animated visualization showing the evolution of the concentration field, along with graphs of related metrics such as total concentration over time.
+        
+        """
         speed = params.speed
         # Allocation d'un tableau pour tous les éléments
         S = np.empty(len(L_result))
@@ -97,7 +110,7 @@ class Simu_plot:
         fig, axs = plt.subplots(2, 2, figsize=(12, 10))
         (ax1, ax2), (ax3, ax4) = axs
 
-        im = ax1.imshow(L_result[0], extent=(
+        im = ax1.imshow(L_result[-1], extent=(
             0, params.Lx, 0, params.Ly), origin='lower', cmap='hot')  # , norm=LogNorm())
         plt.colorbar(im, ax=ax1, label="Concentration")
 
@@ -105,7 +118,7 @@ class Simu_plot:
         ax1.set_ylabel("$y \\ (cm)$")
         ax1.set_title(f"Concentration finale après ${params.T:0.1e} \\ s$")
 
-        line1, = ax2.plot(S)
+        line1, = ax2.plot([k * params.step for k in range(len(S))], S)
         ax2.set_xlim(0, params.nt)
         ax2.set_ylim(min(S) * 0.99, max(S) * 1.01)
         ax2.set_xlabel("$n$ itérations")
@@ -113,10 +126,10 @@ class Simu_plot:
         ax2.set_title("$N_{tot}$ en fonction de l'itération")
         ax2.grid(True, color='gray', linestyle='--', linewidth=0.5)
 
-        xc = L_result[0][params.nx // 2, :]
+        xc = L_result[-1][params.nx // 2, :]
         line2, = ax3.plot([k * params.dx for k in range(params.nx)],
                           xc, 'r', linestyle="--", marker="2", label="X")
-        yc = L_result[0][:, params.ny // 2]
+        yc = L_result[-1][:, params.ny // 2]
         line3, = ax3.plot([k * params.dy for k in range(params.ny)],
                           yc, "y", linestyle="--", marker="2", label="Y")
 
@@ -179,15 +192,22 @@ class Simu_plot:
             return [im, line1, line2, line3, line4, line5, line6, ]
 
         # Création de l'animation avec `FuncAnimation`
-        ani = FuncAnimation(fig, update, interval=5, frames=len(
-            L_result) // speed, blit=True, repeat=True)
+        if anim==True:
+            ani = FuncAnimation(fig, update, interval=5, frames=len(
+                L_result) // speed, blit=True, repeat=True)
 
-        # Afficher l'animation
-        plt.show()
-        return ani
+            # Afficher l'animation
+            plt.show()
+            return ani
+        else:
+            plt.show()
 
     @classmethod
     def anim_vect(self, params, L_result, s_ech=5):
+        """
+        Produces an animated vector field representation of concentration gradients over time, combined with concentration maps.
+        
+        """
         speed, nt, nx, ny = params.speed, params.nt, params.nx, params.ny
 
         fig, ax1 = plt.subplots(figsize=(10, 10))
@@ -209,7 +229,7 @@ class Simu_plot:
                                                   ::s], dC_dx[::s, ::s], dC_dy[::s, ::s], c[::s, ::s]
 
         quiver = ax1.quiver(X, Y, pdC_dx / pc, pdC_dy / pc,
-                            pc, cmap='plasma', scale=1e-0 / (2 * params.Lx),)
+                            pc, cmap='plasma', scale=1e1 / (2 * params.Lx),)
         ax1.set_xlabel("$x \\ (cm)$")
         ax1.set_ylabel("$y \\ (cm)$")
         ax1.set_title(f"Concentration finale après ${params.T:0.1e} \\ s$")
@@ -225,7 +245,7 @@ class Simu_plot:
 
             # Calcul des gradients pour la frame courante
             # Gradients complets
-            dC_dy, dC_dx = np.gradient(-L_result[i] + L_result[i + 1])
+            dC_dy, dC_dx = np.gradient(-L_result[i + 1])#-L_result[i] + 
 
             # Norme des vecteurs (éviter division par zéro avec 1e-10)
             c = np.max(dC_dx**2 + dC_dy**2)
@@ -251,7 +271,7 @@ class Simu_plot:
             pc = anic[speed * frame]
             # im.set_array((dC_dy**2 + dC_dx**2)/c)
             # Met à jour les données du quiver
-            quiver.set_UVC(dC_dx, dC_dy, 10 * pc / np.max(pc))
+            quiver.set_UVC(dC_dx, dC_dy, 10 * pc / (np.max(pc)))
             # colorbar.update_normal(im)
             return [im, quiver]
 

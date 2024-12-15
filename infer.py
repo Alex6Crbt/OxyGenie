@@ -36,8 +36,8 @@ plt.show()
 
 # %%
 
-
-k_random = 10  # 9*np.random.rand()+1 # On choisi un k entre 1 et 10 aléatoirement, float
+np.random.seed(5)
+k_random = 1  # 9*np.random.rand()+1 # On choisi un k entre 1 et 10 aléatoirement, float
 
 T_simu_rp = -2 / 9 * k_random + 2.5 - 2 / 9
 
@@ -67,14 +67,19 @@ out = model.predict(V_net.astype(np.float32), X_2)
 out[out > 100] = 100
 
 # On lance la simu
+
 L_result = simu.run_simulation(simuparams, simu.FromPGVNet(
     V_net), C_0_cst=True, save_last_only=False, C0=out)
 
 Y = L_result[-1]  # Dernier résultat de simulation (état stationaire)
 
+
+# from matplotlib.colors import LogNorm
 f, a = plt.subplots(1, 2)
-a[0].imshow(out)
-a[1].imshow(Y)
+a[0].imshow(L_result[len(L_result)//2], cmap="hot")#, norm=LogNorm())
+a[1].imshow(Y, cmap="hot")
+a[1].axis("off")
+a[0].axis("off")
 plt.show()
 
 

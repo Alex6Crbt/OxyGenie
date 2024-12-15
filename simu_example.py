@@ -41,7 +41,9 @@ L_result = run_simulation(simparams, FromPGVNet(Vnet[0]), C_0_cst=True)
 
 
 # Affichage
-
+#%%
 Simu_plot.simple(simparams, L_result[-1], simparams.D_mat)
 
-Simu_plot.anim(simparams, L_result)
+Simu_plot.anim(simparams, L_result, anim=True)
+
+Simu_plot.anim_vect(simparams, L_result, s_ech=5)

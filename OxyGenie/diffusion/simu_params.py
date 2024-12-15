@@ -2,6 +2,60 @@ import numpy as np
 
 
 class SimulationParams:
+    """
+    A class to define and manage the parameters for a 2D simulation.
+
+    This class handles both user-defined and derived parameters needed for numerical
+    simulations, including spatial and temporal discretizations. It ensures consistency
+    among related parameters (e.g., grid size and spacing) and recalculates derived
+    parameters when key attributes are updated.
+
+    Parameters
+    ----------
+    **kwargs : dict
+        Arbitrary keyword arguments to initialize the simulation parameters:
+        
+        - D : float, optional
+            Diffusion coefficient (default: 1e-5).
+        - k : float, optional
+            Absorbtion rate constant (default: 0).
+        - Lx : float, optional
+            Length of the simulation domain in the x-direction (default: 0.01).
+        - Ly : float, optional
+            Length of the simulation domain in the y-direction (default: 0.01).
+        - T : float, optional
+            Total simulation time (default: 0.01).
+        - initial_concentration : float, optional
+            Initial concentration (default: 100.0).
+        - speed : float, optional
+            Speed of the simulation (default: 1).
+        - step : int, optional
+            Simulation step parameter (default: 1).
+        - nt : int, optional
+            Number of time steps (default: 10000).
+        - nx : int, optional
+            Number of spatial steps in the x-direction (default: 100).
+        - ny : int, optional
+            Number of spatial steps in the y-direction (default: 100).
+        - dt : float, optional
+            Time step size (computed if not provided).
+        - dx : float, optional
+            Grid spacing in the x-direction (computed if not provided).
+        - dy : float, optional
+            Grid spacing in the y-direction (computed if not provided).
+
+
+    .. code-block:: python
+    
+        params = {
+            "D": 1e-5, "k": 8, "Lx": 0.05, "Ly": 0.05, "T": 0.5, "nt": 2500, "nx": 256 * 2, "ny": 256 * 2,
+            "initial_concentration": 100.0, "speed": 1, "step": 10,
+        }
+        simparams = SimulationParams(**params)
+        print(simparams)
+    
+    """
+
     def __init__(self, **kwargs):
         # Initialisation des paramètres de base fournis par l'utilisateur
         self.D = kwargs.get("D", 1e-5)

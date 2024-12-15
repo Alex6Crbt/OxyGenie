@@ -46,6 +46,12 @@ class UpSample(nn.Module):
 
 
 class EUNet(nn.Module):
+    """
+    A U-Net-based neural network for image processing with additional embedding input.
+
+    This model processes spatial inputs through a series of down-sampling and up-sampling layers,
+    integrating additional parameter embeddings at the bottleneck.
+    """
     def __init__(self):
         super().__init__()
 
@@ -91,6 +97,10 @@ class EUNet(nn.Module):
 
     @torch.no_grad
     def predict(self, img, params):
+        """
+        Inference method for processing input images and parameters.
+
+        """
         test_image = img.copy()
         x_min, x_max = np.min(test_image), np.max(test_image)
         test_image = (test_image - x_min) / (x_max - x_min)
