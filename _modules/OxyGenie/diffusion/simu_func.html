@@ -1,0 +1,1124 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OxyGenie.diffusion.simu_func &#8212; OxyGenie 1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/OxyGenie/diffusion/simu_func';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="OxyGenie 1.0 documentation - Home"/>
+    <img src="../../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="OxyGenie 1.0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api_reference.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Alex6Crbt/OxyGenie" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api_reference.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Alex6Crbt/OxyGenie" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">OxyGenie.diffusion.simu_func</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for OxyGenie.diffusion.simu_func</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+
+<div class="viewcode-block" id="crit_stab">
+<a class="viewcode-back" href="../../../code/OxyGenie.diffusion.html#OxyGenie.diffusion.crit_stab">[docs]</a>
+<span class="k">def</span> <span class="nf">crit_stab</span><span class="p">(</span><span class="n">alphax</span><span class="p">,</span> <span class="n">alphay</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Evaluates the Courant–Friedrichs–Lewy (CFL) condition for numerical stability with the maximum values of `alphax` and `alphay`.</span>
+
+<span class="sd">    The function checks if the sum of the maximum values of `alphax` and `alphay` exceeds</span>
+<span class="sd">    the stability threshold (0.5). If the criterion is not met, a `ValueError` is raised.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    alphax : 2D np.ndarray</span>
+<span class="sd">        Here\: :math:`\alpha_x = \frac{D \cdot \Delta t}{(\Delta x)^2}`</span>
+<span class="sd">    alphay : 2D np.ndarray</span>
+<span class="sd">        Here\: :math:`\alpha_y = \frac{D \cdot \Delta t}{(\Delta y)^2}`</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If the stability criterion is not respected (stab_coef &gt;= 0.5). The error message includes</span>
+<span class="sd">        the computed stability coefficient.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None.</span>
+<span class="sd">        Prints a message indicating whether the stability criterion is respected.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">stab_coef</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">alphax</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">alphay</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">stab_coef</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Critère de stabilité non respecté (&gt;0.5): </span><span class="si">{</span><span class="n">stab_coef</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Critère de stabilité respecté (&lt;0.5): </span><span class="si">{</span><span class="n">stab_coef</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="N_tot">
+<a class="viewcode-back" href="../../../code/OxyGenie.diffusion.html#OxyGenie.diffusion.N_tot">[docs]</a>
+<span class="k">def</span> <span class="nf">N_tot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the total number of particles in a 2D concentration field.</span>
+
+<span class="sd">    .. warning::</span>
+<span class="sd">        </span>
+<span class="sd">        -Avogadro&#39;s number is used to convert molar concentration</span>
+<span class="sd">        to the number of particles.</span>
+
+<span class="sd">        -The boundary of width `l = 1` is excluded from the sum to avoid edge effects from the boundary condintions.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    C : 2D np.ndarray</span>
+<span class="sd">        The 2D array representing the concentration field (in moles per square meter).</span>
+<span class="sd">        The boundary region is excluded from the calculation.</span>
+<span class="sd">    dx : float</span>
+<span class="sd">        The grid spacing in the x-direction (in meters).</span>
+<span class="sd">    dy : float</span>
+<span class="sd">        The grid spacing in the y-direction (in meters).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        The total number of particles within the central region of the grid.</span>
+<span class="sd">        The result is dimensionless.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">Na</span> <span class="o">=</span> <span class="mf">6.02214076e23</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="n">l</span><span class="p">:</span><span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="n">l</span><span class="p">:</span><span class="o">-</span><span class="n">l</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">dx</span> <span class="o">*</span> <span class="n">dy</span> <span class="o">*</span> <span class="n">Na</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span> <span class="nf">init_simulation</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">vasc_path</span><span class="o">=</span><span class="s2">&quot;/Users/alexis/Downloads/IMG_38EDAE940454-1.jpeg&quot;</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">vasc_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Initialisation de la concentration en O2</span>
+        <span class="c1"># Im = Image.open(&quot;/Users/alexis/Downloads/IMG_0495.jpg&quot;)</span>
+        <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span>
+        <span class="n">Im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">vasc_path</span><span class="p">)</span>
+        <span class="n">image_reduite</span> <span class="o">=</span> <span class="n">Im</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image_reduite</span><span class="p">)</span>
+        <span class="n">m1</span> <span class="o">=</span> <span class="n">M</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">125</span>  <span class="c1"># concentration dans les vaissaux</span>
+        <span class="n">m2</span> <span class="o">=</span> <span class="n">M</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">125</span>  <span class="c1"># concentration dans les vaissaux + znd</span>
+        <span class="n">m3</span> <span class="o">=</span> <span class="n">M</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">125</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">m1</span> <span class="o">=</span> <span class="n">m1</span>
+        <span class="n">m3</span><span class="p">[</span><span class="n">m1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># concentration dans les znd</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">initial_concentration</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span> <span class="o">*</span> <span class="n">m1</span>
+        <span class="c1"># Initialisation du coefficient de diffusion :</span>
+        <span class="c1"># D = params.D/100*np.ones((nx, ny))*m1+params.D*np.ones((nx, ny))*~m2+params.D/1000*np.ones((nx, ny))*m2</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">D</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span> <span class="o">*</span> <span class="n">m1</span> <span class="o">+</span> <span class="n">params</span><span class="o">.</span><span class="n">D</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span> <span class="o">*</span> <span class="o">~</span><span class="n">m2</span> <span class="o">+</span> <span class="n">params</span><span class="o">.</span><span class="n">D</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span> <span class="o">*</span> <span class="n">m2</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">D_mat</span> <span class="o">=</span> <span class="n">D</span>
+        <span class="n">dDx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="c1"># Attention claculer la dérivé de D</span>
+        <span class="n">dDx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">dDy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="c1"># Attention claculer la dérivé de D</span>
+        <span class="n">dDy</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># Initialisation de l&#39;absobtion/production en O2</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="n">k</span><span class="p">[</span><span class="o">~</span><span class="n">m2</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">k</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">~</span><span class="n">m2</span><span class="p">)</span>
+        <span class="n">k</span><span class="p">[</span><span class="n">m3</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">k</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">m3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span>
+        <span class="n">k</span><span class="p">[</span><span class="n">m1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">params</span><span class="o">.</span><span class="n">k</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">m3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">k_mat</span> <span class="o">=</span> <span class="n">k</span>
+        <span class="c1"># Initialisation des préfacteur de l&#39;équation de diffusion discrète</span>
+        <span class="n">alphax</span> <span class="o">=</span> <span class="n">D</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">alphay</span> <span class="o">=</span> <span class="n">D</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">betax</span> <span class="o">=</span> <span class="n">dDx</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">betay</span> <span class="o">=</span> <span class="n">dDy</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="k">return</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">alphax</span><span class="p">,</span> <span class="n">alphay</span><span class="p">,</span> <span class="n">betax</span><span class="p">,</span> <span class="n">betay</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Initialisation de la concentration en O2</span>
+        <span class="n">center_x</span><span class="p">,</span> <span class="n">center_y</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">nx</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">initial_source_size</span>
+        <span class="n">concentration</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">initial_concentration</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">params</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span><span class="p">))</span>
+        <span class="n">C</span><span class="p">[</span><span class="n">center_x</span> <span class="o">-</span> <span class="n">size</span><span class="p">:</span><span class="n">center_x</span> <span class="o">+</span> <span class="n">size</span><span class="p">,</span> <span class="n">center_y</span> <span class="o">-</span>
+            <span class="n">size</span><span class="p">:</span><span class="n">center_y</span> <span class="o">+</span> <span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="n">concentration</span>
+        <span class="c1"># Initialisation du coefficient de diffusion :</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span><span class="p">),</span>
+                           <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">nx</span><span class="p">))</span>
+        <span class="n">D2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">D</span> <span class="o">*</span> <span class="n">D2</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">D_mat</span> <span class="o">=</span> <span class="n">D</span>
+        <span class="n">dDx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="c1"># Attention claculer la dérivé de D</span>
+        <span class="n">dDx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">dDy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="c1"># Attention claculer la dérivé de D</span>
+        <span class="n">dDy</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># Initialisation de l&#39;absobtion/production en O2</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">params</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span><span class="p">))</span>
+        <span class="n">k</span><span class="p">[</span><span class="n">params</span><span class="o">.</span><span class="n">nx</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="p">:</span><span class="n">params</span><span class="o">.</span><span class="n">nx</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span> <span class="o">//</span>
+            <span class="mi">2</span> <span class="o">-</span> <span class="mi">10</span><span class="p">:</span><span class="n">params</span><span class="o">.</span><span class="n">ny</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">k</span>
+        <span class="n">k</span><span class="p">[</span><span class="n">params</span><span class="o">.</span><span class="n">nx</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">params</span><span class="o">.</span><span class="n">k</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">k_mat</span> <span class="o">=</span> <span class="n">k</span>
+        <span class="c1"># Initialisation des préfacteur de l&#39;équation de diffusion discrète</span>
+        <span class="n">alphax</span> <span class="o">=</span> <span class="n">D</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">alphay</span> <span class="o">=</span> <span class="n">D</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">betax</span> <span class="o">=</span> <span class="n">dDx</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">betay</span> <span class="o">=</span> <span class="n">dDy</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="k">return</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">alphax</span><span class="p">,</span> <span class="n">alphay</span><span class="p">,</span> <span class="n">betax</span><span class="p">,</span> <span class="n">betay</span>
+
+
+<div class="viewcode-block" id="F">
+<a class="viewcode-back" href="../../../code/OxyGenie.diffusion.html#OxyGenie.diffusion.F">[docs]</a>
+<span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">cax</span><span class="p">,</span> <span class="n">cay</span><span class="p">,</span> <span class="n">cbx</span><span class="p">,</span> <span class="n">cby</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Computes the rate of change of the concentration field `C` based on the diffusion and reaction terms.</span>
+
+<span class="sd">    This function calculates the right-hand side of the diffusion-reaction equation using finite differences </span>
+<span class="sd">    for the diffusion terms and a simple linear reaction term.</span>
+<span class="sd">    </span>
+<span class="sd">    .. warning::</span>
+<span class="sd">        This function is only working for RK4 compute step scheme</span>
+<span class="sd">        </span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> \
+        <span class="o">+</span> <span class="n">cbx</span> <span class="o">*</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> \
+        <span class="o">+</span> <span class="n">cby</span> <span class="o">*</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> \
+        <span class="o">+</span> <span class="n">cax</span> <span class="o">*</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>\
+        <span class="o">+</span> <span class="n">cay</span> <span class="o">*</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="compute_step_rk4">
+<a class="viewcode-back" href="../../../code/OxyGenie.diffusion.html#OxyGenie.diffusion.compute_step_rk4">[docs]</a>
+<span class="k">def</span> <span class="nf">compute_step_rk4</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">cax</span><span class="p">,</span> <span class="n">cay</span><span class="p">,</span> <span class="n">cbx</span><span class="p">,</span> <span class="n">cby</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Performs one step of the 4th-order Runge-Kutta (RK4) method to update the concentration field.</span>
+
+<span class="sd">    The RK4 method is a numerical technique for solving ordinary differential equations (ODEs). </span>
+<span class="sd">    This function applies it to the concentration field `C` in a 2D grid, accounting for diffusion and absorbtion.</span>
+<span class="sd">    </span>
+<span class="sd">    .. note::</span>
+<span class="sd">        The boundary conditions are set to be &quot;no flux&quot; (Neumann).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    C : 2D np.ndarray</span>
+<span class="sd">        The current concentration field.</span>
+
+<span class="sd">    D : 2D np.ndarray</span>
+<span class="sd">        The diffusion coefficient field, with the same shape as `C`.</span>
+
+<span class="sd">    k : 2D np.ndarray</span>
+<span class="sd">        The absorbtion rate field, with the same shape as `C`.</span>
+
+<span class="sd">    cax : 2D np.ndarray</span>
+<span class="sd">        The precomputed prefactor for the diffusion term in the x-direction.</span>
+
+<span class="sd">    cay : 2D np.ndarray</span>
+<span class="sd">        The precomputed prefactor for the diffusion term in the y-direction.</span>
+
+<span class="sd">    cbx : 2D np.ndarray</span>
+<span class="sd">        The precomputed prefactor for the diffusion flux term in the x-direction.</span>
+
+<span class="sd">    cby : 2D np.ndarray</span>
+<span class="sd">        The precomputed prefactor for the diffusion flux term in the y-direction.</span>
+
+<span class="sd">    dt : float</span>
+<span class="sd">        The time step (`dt`) used for the RK4 method to update the concentration.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    2D np.ndarray</span>
+<span class="sd">        The updated concentration field `C_new` after one RK4 step, with the same shape as `C`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">k1</span><span class="p">,</span> <span class="n">k2</span><span class="p">,</span> <span class="n">k3</span><span class="p">,</span> <span class="n">k4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">C</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span>
+        <span class="n">C</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">C</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+
+    <span class="c1"># Créer une copie pour la mise à jour en place</span>
+    <span class="n">C_new</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">k1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">F</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">cax</span><span class="p">,</span> <span class="n">cay</span><span class="p">,</span> <span class="n">cbx</span><span class="p">,</span> <span class="n">cby</span><span class="p">)</span>
+    <span class="n">k2</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">F</span><span class="p">(</span><span class="n">C</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">k1</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">cax</span><span class="p">,</span> <span class="n">cay</span><span class="p">,</span> <span class="n">cbx</span><span class="p">,</span> <span class="n">cby</span><span class="p">)</span>
+    <span class="n">k3</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">F</span><span class="p">(</span><span class="n">C</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">k2</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">cax</span><span class="p">,</span> <span class="n">cay</span><span class="p">,</span> <span class="n">cbx</span><span class="p">,</span> <span class="n">cby</span><span class="p">)</span>
+    <span class="n">k4</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">F</span><span class="p">(</span><span class="n">C</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">k3</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">cax</span><span class="p">,</span> <span class="n">cay</span><span class="p">,</span> <span class="n">cbx</span><span class="p">,</span> <span class="n">cby</span><span class="p">)</span>
+
+    <span class="c1"># Calculer la diffusion pour chaque point interne de la grille</span>
+    <span class="n">C_new</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt</span> <span class="o">/</span> <span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span>
+        <span class="n">k1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k2</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">k3</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">k4</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># dt*F(C)</span>
+
+    <span class="c1"># Conditions aux bords (ici, on utilise des bords fixes à zéro)</span>
+    <span class="n">C_new</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">C_new</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">C_new</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">C_new</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">C_new</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">C_new</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">C_new</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">C_new</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">C_new</span></div>
+
+
+
+<div class="viewcode-block" id="compute_step_euler">
+<a class="viewcode-back" href="../../../code/OxyGenie.diffusion.html#OxyGenie.diffusion.compute_step_euler">[docs]</a>
+<span class="k">def</span> <span class="nf">compute_step_euler</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">cax</span><span class="p">,</span> <span class="n">cay</span><span class="p">,</span> <span class="n">cbx</span><span class="p">,</span> <span class="n">cby</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Performs one step of the Euler method to update the concentration field.</span>
+
+<span class="sd">    The update is based on the following form of the diffusion equation:</span>
+
+<span class="sd">    :math:`\frac{\partial C(\textbf{r}, t)}{\partial t} = \text{div}(D(\textbf{r}) \cdot \overrightarrow{\text{grad}}(C(\textbf{r}, t)) - k(\textbf{r}) \cdot C(\textbf{r}, t)`</span>
+
+<span class="sd">    where the diffusion terms are discretized using finite differences (forward for flux terms and central for diffusion terms).</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        The boundary conditions are set to be &quot;no flux&quot; (Neumann).</span>
+<span class="sd">    </span>
+<span class="sd">    .. warning::</span>
+<span class="sd">        The stability criterion needs to be respected.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    C : 2D np.ndarray</span>
+<span class="sd">        The current concentration field.</span>
+
+<span class="sd">    D : 2D np.ndarray</span>
+<span class="sd">        The diffusion coefficient field, with the same shape as `C`.</span>
+
+<span class="sd">    k : 2D np.ndarray</span>
+<span class="sd">        The absorbtion rate field, with the same shape as `C`.</span>
+
+<span class="sd">    cax : 2D np.ndarray</span>
+<span class="sd">        The precomputed prefactor for the diffusion term in the x-direction.</span>
+
+<span class="sd">    cay : 2D np.ndarray</span>
+<span class="sd">        The precomputed prefactor for the diffusion term in the y-direction.</span>
+
+<span class="sd">    cbx : 2D np.ndarray</span>
+<span class="sd">        The precomputed prefactor for the diffusion flux term in the x-direction.</span>
+
+<span class="sd">    cby : 2D np.ndarray</span>
+<span class="sd">        The precomputed prefactor for the diffusion flux term in the y-direction.</span>
+
+<span class="sd">    dt : float</span>
+<span class="sd">        The time step (`dt`) used for the RK4 method to update the concentration.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    2D np.ndarray</span>
+<span class="sd">        The updated concentration field `C_new` after one RK4 step, with the same shape as `C`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">C_new</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># C_new[1:-1, 1:-1] = C[1:-1, 1:-1]*(1-k[1:-1, 1:-1]*dt) + betax[1:-1, 1:-1]*(C[2:, 1:-1]-C[1:-1, 1:-1]) + betay[1:-1, 1:-1]*(C[1:-1, 2:]-C[1:-1, 1:-1]) + alphax[1:-1, 1:-1]*(C[2:, 1:-1]+C[:-2, 1:-1]-2*C[1:-1, 1:-1])+alphay[1:-1, 1:-1]*(C[1:-1, 2:]+C[1:-1, :-2]-2*C[1:-1, 1:-1])</span>
+    <span class="n">C_new</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span> \
+        <span class="o">+</span> <span class="n">cbx</span> <span class="o">*</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> \
+        <span class="o">+</span> <span class="n">cby</span> <span class="o">*</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> \
+        <span class="o">+</span> <span class="n">cax</span> <span class="o">*</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">C</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>\
+        <span class="o">+</span> <span class="n">cay</span> <span class="o">*</span> <span class="p">(</span><span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">C</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># C_new[1:-1, 1:-1] = C[1:-1, 1:-1] + dt*F(C, k, cax, cay, cbx, cby)</span>
+
+    <span class="c1"># C_new = params.initial_concentration*np.ones((params.nx, params.ny))*params.m1 + C_new*~params.m1</span>
+
+    <span class="c1"># Conditions aux bords (ici, on utilise la condition de flux nul)</span>
+    <span class="n">C_new</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">C_new</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">C_new</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">C_new</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">C_new</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">C_new</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">C_new</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">C_new</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">C_new</span></div>
+
+
+
+<div class="viewcode-block" id="FromPGVNet">
+<a class="viewcode-back" href="../../../code/OxyGenie.diffusion.html#OxyGenie.diffusion.FromPGVNet">[docs]</a>
+<span class="k">class</span> <span class="nc">FromPGVNet</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to initialize concentration, diffusion coefficients, and reaction rates from a vascular network generated by the pgvnet sub-module.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        - The provided grid is resized to match the grid size defined by `params.nx` and `params.ny`.</span>
+<span class="sd">        - The concentration (`C`), diffusion coefficient (`D`), and reaction rate (`k`) fields are initialized </span>
+<span class="sd">          based on values in the grid.</span>
+<span class="sd">        - Diffusion coefficient and absorbtion rate are adjusted based on pixel values, where:</span>
+<span class="sd">            - Areas with higher grid values represent regions with higher diffusion coefficients.</span>
+<span class="sd">            - Regions with pixel values below a threshold represent areas with production or absorption rates.</span>
+<span class="sd">        - Return via `__call__`</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    grid : 2D np.ndarray</span>
+<span class="sd">        Vascular network generated by the pgvnet sub-module. The grid values are</span>
+<span class="sd">        used to define regions with different diffusion and absorbtion properties based on thresholds.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple</span>
+<span class="sd">        - `C` : 2D np.ndarray</span>
+<span class="sd">            Initialized concentration field based on grid values.</span>
+<span class="sd">        - `D` : 2D np.ndarray</span>
+<span class="sd">            Diffusion coefficient field initialized based on grid values.</span>
+<span class="sd">        - `k` : 2D np.ndarray</span>
+<span class="sd">            Absorbtion rate field initialized based on grid values.</span>
+<span class="sd">        - `alphax` : 2D np.ndarray</span>
+<span class="sd">            Prefactor for diffusion in the x-direction.</span>
+<span class="sd">        - `alphay` : 2D np.ndarray</span>
+<span class="sd">            Prefactor for diffusion in the y-direction.</span>
+<span class="sd">        - `betax` : 2D np.ndarray</span>
+<span class="sd">            Prefactor for the diffusion flux term in the x-direction.</span>
+<span class="sd">        - `betay` : 2D np.ndarray</span>
+<span class="sd">            Prefactor for the diffusion flux term in the y-direction</span>
+
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">    </span>
+<span class="sd">        from OxyGenie.diffusion import *</span>
+<span class="sd">        import OxyGenie.pgvnet as pgv</span>
+<span class="sd">        </span>
+<span class="sd">        grid = pgv.simple_generation(grid_size=1280)[0]</span>
+<span class="sd">        params = {</span>
+<span class="sd">            &quot;D&quot;: 1e-5, &quot;k&quot;: 8, &quot;Lx&quot;: 0.05, &quot;Ly&quot;: 0.05, &quot;T&quot;: 0.5, </span>
+<span class="sd">            &quot;nt&quot;: 2500, &quot;nx&quot;: 256 * 2, &quot;ny&quot;: 256 * 2,</span>
+<span class="sd">            &quot;initial_concentration&quot;: 100.0, &quot;step&quot;: 10,</span>
+<span class="sd">        }</span>
+<span class="sd">        simparams = SimulationParams(**params)</span>
+<span class="sd">        from_pgvnet = FromPGVNet(grid)</span>
+<span class="sd">        C, D, k, alphax, alphay, betax, betay = from_pgvnet(params)</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grid</span> <span class="o">=</span> <span class="n">grid</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid</span>
+        <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span>
+        <span class="k">assert</span> <span class="p">((</span><span class="n">nx</span> <span class="o">&lt;=</span> <span class="n">grid</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ny</span> <span class="o">&lt;=</span> <span class="n">grid</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">Im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+        <span class="n">image_reduite</span> <span class="o">=</span> <span class="n">Im</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image_reduite</span><span class="p">)</span>
+        <span class="c1"># params.Mmat = M</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">initial_concentration</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">M</span> <span class="o">&gt;=</span> <span class="mi">200</span><span class="p">))</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">C_ini</span> <span class="o">=</span> <span class="n">C</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Added initial C to params : params.C_ini&quot;</span><span class="p">)</span>
+        <span class="c1"># Initialisation du coefficient de diffusion :</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">D</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">M</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="n">params</span><span class="o">.</span><span class="n">D</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">M</span> <span class="o">&lt;=</span> <span class="mi">200</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span>
+            <span class="n">M</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="n">params</span><span class="o">.</span><span class="n">D</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">M</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># +params.D/1000*np.ones((nx, ny))*m2</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">D_mat</span> <span class="o">=</span> <span class="n">D</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Added Diff mat to params : params.D_mat&quot;</span><span class="p">)</span>
+        <span class="n">dDx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="c1"># Attention claculer la dérivé de D</span>
+        <span class="n">dDx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">dDy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="c1"># Attention claculer la dérivé de D</span>
+        <span class="n">dDy</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># Initialisation de l&#39;absobtion/production en O2</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="n">k</span><span class="p">[</span><span class="n">M</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">k</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">k_mat</span> <span class="o">=</span> <span class="n">k</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Added k mat to params : params.k_mat&quot;</span><span class="p">)</span>
+        <span class="c1"># Initialisation des préfacteur de l&#39;équation de diffusion discrète</span>
+        <span class="n">alphax</span> <span class="o">=</span> <span class="n">D</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">alphay</span> <span class="o">=</span> <span class="n">D</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">betax</span> <span class="o">=</span> <span class="n">dDx</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">betay</span> <span class="o">=</span> <span class="n">dDy</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+        <span class="k">return</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">alphax</span><span class="p">,</span> <span class="n">alphay</span><span class="p">,</span> <span class="n">betax</span><span class="p">,</span> <span class="n">betay</span></div>
+
+
+
+<div class="viewcode-block" id="FromIMG">
+<a class="viewcode-back" href="../../../code/OxyGenie.diffusion.html#OxyGenie.diffusion.FromIMG">[docs]</a>
+<span class="k">class</span> <span class="nc">FromIMG</span><span class="p">:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to initialize concentration, diffusion coefficients, and reaction rates from an image.</span>
+
+
+<span class="sd">    .. note::</span>
+<span class="sd">        - The provided image is resized to match the grid size defined by `params.nx` and `params.ny`.</span>
+<span class="sd">        - The concentration (`C`), diffusion coefficient (`D`), and reaction rate (`k`) fields are initialized </span>
+<span class="sd">          based on chanel values in the grid.</span>
+<span class="sd">        - Return via `__call__`</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    </span>
+<span class="sd">    vasc_path : str</span>
+<span class="sd">        Path to the image file containing spatial information. The image is used to define regions with different </span>
+<span class="sd">        diffusion and reaction properties based on the channel pixel values.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple</span>
+<span class="sd">        - `C` : 2D np.ndarray</span>
+<span class="sd">            Initialized concentration field based on grid values.</span>
+<span class="sd">        - `D` : 2D np.ndarray</span>
+<span class="sd">            Diffusion coefficient field initialized based on grid values.</span>
+<span class="sd">        - `k` : 2D np.ndarray</span>
+<span class="sd">            Absorbtion rate field initialized based on grid values.</span>
+<span class="sd">        - `alphax` : 2D np.ndarray</span>
+<span class="sd">            Prefactor for diffusion in the x-direction.</span>
+<span class="sd">        - `alphay` : 2D np.ndarray</span>
+<span class="sd">            Prefactor for diffusion in the y-direction.</span>
+<span class="sd">        - `betax` : 2D np.ndarray</span>
+<span class="sd">            Prefactor for the diffusion flux term in the x-direction.</span>
+<span class="sd">        - `betay` : 2D np.ndarray</span>
+<span class="sd">            Prefactor for the diffusion flux term in the y-direction</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">    </span>
+<span class="sd">        from OxyGenie.diffusion import *</span>
+<span class="sd">        </span>
+<span class="sd">        params = {</span>
+<span class="sd">            &quot;D&quot;: 1e-5, &quot;k&quot;: 8, &quot;Lx&quot;: 0.05, &quot;Ly&quot;: 0.05, &quot;T&quot;: 0.5, </span>
+<span class="sd">            &quot;nt&quot;: 2500, &quot;nx&quot;: 256 * 2, &quot;ny&quot;: 256 * 2,</span>
+<span class="sd">            &quot;initial_concentration&quot;: 100.0, &quot;step&quot;: 10,</span>
+<span class="sd">        }</span>
+<span class="sd">        simparams = SimulationParams(**params)</span>
+<span class="sd">        from_IMG = FromIMG(&quot;/path.jpg&quot;)</span>
+<span class="sd">        C, D, k, alphax, alphay, betax, betay = from_IMG(params)</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vasc_path</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vasc_path</span> <span class="o">=</span> <span class="n">vasc_path</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="c1"># Initialisation de la concentration en O2</span>
+        <span class="c1"># Im = Image.open(&quot;/Users/alexis/Downloads/IMG_0495.jpg&quot;)</span>
+        <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span>
+        <span class="n">Im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vasc_path</span><span class="p">)</span>
+        <span class="n">image_reduite</span> <span class="o">=</span> <span class="n">Im</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image_reduite</span><span class="p">)</span>
+        <span class="n">m1</span> <span class="o">=</span> <span class="n">M</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">125</span>  <span class="c1"># concentration dans les vaissaux</span>
+        <span class="n">m2</span> <span class="o">=</span> <span class="n">M</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">125</span>  <span class="c1"># concentration dans les vaissaux + znd</span>
+        <span class="n">m3</span> <span class="o">=</span> <span class="n">M</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">125</span>
+        <span class="c1"># params.m1 = m1</span>
+        <span class="n">m3</span><span class="p">[</span><span class="n">m1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># concentration dans les znd</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">initial_concentration</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span> <span class="o">*</span> <span class="n">m1</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">C_ini</span> <span class="o">=</span> <span class="n">C</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Added initial C to params : params.C_ini&quot;</span><span class="p">)</span>
+        <span class="c1"># Initialisation du coefficient de diffusion :</span>
+        <span class="c1"># D = params.D/100*np.ones((nx, ny))*m1+params.D*np.ones((nx, ny))*~m2+params.D/1000*np.ones((nx, ny))*m2</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">D</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span> <span class="o">*</span> <span class="n">m1</span> <span class="o">+</span> <span class="n">params</span><span class="o">.</span><span class="n">D</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span> <span class="o">*</span> <span class="o">~</span><span class="n">m2</span> <span class="o">+</span> <span class="n">params</span><span class="o">.</span><span class="n">D</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span> <span class="o">*</span> <span class="n">m2</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">D_mat</span> <span class="o">=</span> <span class="n">D</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Added Diff mat to params : params.D_mat&quot;</span><span class="p">)</span>
+        <span class="n">dDx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="c1"># Attention claculer la dérivé de D</span>
+        <span class="n">dDx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">dDy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="c1"># Attention claculer la dérivé de D</span>
+        <span class="n">dDy</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># Initialisation de l&#39;absobtion/production en O2</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="n">k</span><span class="p">[</span><span class="o">~</span><span class="n">m2</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">k</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">~</span><span class="n">m2</span><span class="p">)</span>
+        <span class="n">k</span><span class="p">[</span><span class="n">m3</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">k</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">m3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span>
+        <span class="n">k</span><span class="p">[</span><span class="n">m1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">params</span><span class="o">.</span><span class="n">k</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">m3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">k_mat</span> <span class="o">=</span> <span class="n">k</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Added k mat to params : params.k_mat&quot;</span><span class="p">)</span>
+        <span class="c1"># Initialisation des préfacteur de l&#39;équation de diffusion discrète</span>
+        <span class="n">alphax</span> <span class="o">=</span> <span class="n">D</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">alphay</span> <span class="o">=</span> <span class="n">D</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">betax</span> <span class="o">=</span> <span class="n">dDx</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">betay</span> <span class="o">=</span> <span class="n">dDy</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="k">return</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">alphax</span><span class="p">,</span> <span class="n">alphay</span><span class="p">,</span> <span class="n">betax</span><span class="p">,</span> <span class="n">betay</span></div>
+
+
+
+<div class="viewcode-block" id="FromCustom">
+<a class="viewcode-back" href="../../../code/OxyGenie.diffusion.html#OxyGenie.diffusion.FromCustom">[docs]</a>
+<span class="k">class</span> <span class="nc">FromCustom</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to initialize concentration, diffusion coefficients, and reaction rates from an custom distributions.</span>
+
+<span class="sd">    .. warning::    </span>
+<span class="sd">        - `C_init` and `D_init` values must be normalized to [0, 1].</span>
+<span class="sd">        - `k_init` values must be normalized to [-1, 1].</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    C_init : 2D np.ndarray</span>
+<span class="sd">        Initial concentration distribution scaled in the range [0, 1].</span>
+<span class="sd">    D_init : 2D np.ndarray</span>
+<span class="sd">        Initial diffusion coefficient distribution scaled in the range [0, 1].</span>
+<span class="sd">    k_init : 2D np.ndarray</span>
+<span class="sd">        Initial reaction rate distribution scaled in the range [-1, 1].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple</span>
+<span class="sd">        - `C` : 2D np.ndarray</span>
+<span class="sd">            Initialized concentration field based on grid values.</span>
+<span class="sd">        - `D` : 2D np.ndarray</span>
+<span class="sd">            Diffusion coefficient field initialized based on grid values.</span>
+<span class="sd">        - `k` : 2D np.ndarray</span>
+<span class="sd">            Absorbtion rate field initialized based on grid values.</span>
+<span class="sd">        - `alphax` : 2D np.ndarray</span>
+<span class="sd">            Prefactor for diffusion in the x-direction.</span>
+<span class="sd">        - `alphay` : 2D np.ndarray</span>
+<span class="sd">            Prefactor for diffusion in the y-direction.</span>
+<span class="sd">        - `betax` : 2D np.ndarray</span>
+<span class="sd">            Prefactor for the diffusion flux term in the x-direction.</span>
+<span class="sd">        - `betay` : 2D np.ndarray</span>
+<span class="sd">            Prefactor for the diffusion flux term in the y-direction</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">    </span>
+<span class="sd">        from OxyGenie.diffusion import *</span>
+<span class="sd">        </span>
+<span class="sd">        params = {</span>
+<span class="sd">            &quot;D&quot;: 1e-5, &quot;k&quot;: 8, &quot;Lx&quot;: 0.05, &quot;Ly&quot;: 0.05, &quot;T&quot;: 0.5, </span>
+<span class="sd">            &quot;nt&quot;: 2500, &quot;nx&quot;: 256 * 2, &quot;ny&quot;: 256 * 2,</span>
+<span class="sd">            &quot;initial_concentration&quot;: 100.0, &quot;step&quot;: 10,</span>
+<span class="sd">        }</span>
+<span class="sd">        simparams = SimulationParams(**params)</span>
+<span class="sd">        C = np.zeros((simparams.nx,simparams.ny))</span>
+<span class="sd">        C[120:130, 120:130] = 1</span>
+
+<span class="sd">        X, Y = np.meshgrid(np.linspace(-1, 1, simparams.ny), np.linspace(-1, 1, simparams.nx))</span>
+<span class="sd">        D = np.exp(-((X)**2+(Y-1)**2)/1.5)</span>
+
+<span class="sd">        k = np.ones((simparams.nx, simparams.ny))</span>
+
+<span class="sd">        from_Custom = FromCustom(C, D, k)</span>
+<span class="sd">        C, D, k, alphax, alphay, betax, betay = from_Custom(params)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">C_init</span><span class="p">,</span> <span class="n">D_init</span><span class="p">,</span> <span class="n">k_init</span><span class="p">):</span>
+        <span class="c1"># Attention les entrés prennent des valeurs de pixels dans [0, 1]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">C_init</span> <span class="o">=</span> <span class="n">C_init</span>
+        <span class="c1"># Attention les entrés prennent des valeurs de pixels dans [0, 1]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">D_init</span> <span class="o">=</span> <span class="n">D_init</span>
+        <span class="c1"># Attention les entrés prennent des valeurs de pixels dans [-1, 1]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">k_init</span> <span class="o">=</span> <span class="n">k_init</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="c1"># Initialisation de la concentration en O2</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">initial_concentration</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">C_init</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">C_ini</span> <span class="o">=</span> <span class="n">C</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Added initial C to params : params.C_ini&quot;</span><span class="p">)</span>
+        <span class="c1"># Initialisation du coefficient de diffusion :</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">D</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">D_init</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">D_mat</span> <span class="o">=</span> <span class="n">D</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Added Diff mat to params : params.D_mat&quot;</span><span class="p">)</span>
+        <span class="n">dDx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">params</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span><span class="p">))</span>
+        <span class="c1"># Attention claculer la dérivé de D</span>
+        <span class="n">dDx</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">2</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">dDy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">params</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span><span class="p">))</span>
+        <span class="c1"># Attention claculer la dérivé de D</span>
+        <span class="n">dDy</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="n">D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># Initialisation de l&#39;absobtion/production en O2</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">k</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">k_init</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">k_mat</span> <span class="o">=</span> <span class="n">k</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Added k mat to params : params.k_mat&quot;</span><span class="p">)</span>
+        <span class="c1"># Initialisation des préfacteur de l&#39;équation de diffusion discrète</span>
+        <span class="n">alphax</span> <span class="o">=</span> <span class="n">D</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">alphay</span> <span class="o">=</span> <span class="n">D</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">betax</span> <span class="o">=</span> <span class="n">dDx</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">betay</span> <span class="o">=</span> <span class="n">dDy</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="k">return</span> <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">alphax</span><span class="p">,</span> <span class="n">alphay</span><span class="p">,</span> <span class="n">betax</span><span class="p">,</span> <span class="n">betay</span></div>
+
+
+
+<div class="viewcode-block" id="run_simulation">
+<a class="viewcode-back" href="../../../code/OxyGenie.diffusion.html#OxyGenie.diffusion.run_simulation">[docs]</a>
+<span class="k">def</span> <span class="nf">run_simulation</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">init_method</span><span class="p">,</span> <span class="n">C_0_cst</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_last_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">C0</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Runs the simulation of the 2D diffusion equation:</span>
+
+<span class="sd">    .. math::</span>
+<span class="sd">        \frac{\partial C(\mathbf{r}, t)}{\partial t} = \nabla \cdot \big(D(\mathbf{r}) \cdot \nabla C(\mathbf{r}, t)\big) - k(\mathbf{r}) \cdot C(\mathbf{r}, t)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    params : object</span>
+<span class="sd">        Contains the simulation parameters, including time step (`dt`), grid resolution (`dx`, `dy`), </span>
+<span class="sd">        and number of time steps (`nt`).</span>
+<span class="sd">    init_method : callable</span>
+<span class="sd">        A function that initializes the state variables, returning `C`, `D`, `k`, `alphax`, `alphay`, </span>
+<span class="sd">        `betax`, and `betay`.</span>
+<span class="sd">    C_0_cst : bool, optional</span>
+<span class="sd">        If True, maintains the initial constant value of `C` throughout the simulation (default: True).</span>
+<span class="sd">    save_last_only : bool, optional</span>
+<span class="sd">        If True, only saves the final state of the simulation (default: False).</span>
+<span class="sd">    C0 : 2D np.ndarray, optional</span>
+<span class="sd">        An optional initial concentration array to override the default initialization.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list of 2D np.ndarray</span>
+<span class="sd">        A list containing the concentration fields at each saved time step. If `save_last_only` is True, </span>
+<span class="sd">        only the final state is saved.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If the stability criterion is not respected.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The function uses an explicit Euler method to solve the diffusion equation. The stability criterion is checked</span>
+<span class="sd">    before the simulation begins using the `crit_stab` function. The total amount of substance in the system is </span>
+<span class="sd">    printed before and after the simulation.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    To run a simulation with default parameters:</span>
+
+<span class="sd">    .. code-block:: python</span>
+<span class="sd">    </span>
+<span class="sd">        from OxyGenie.diffusion import *</span>
+<span class="sd">        </span>
+<span class="sd">        params = {</span>
+<span class="sd">            &quot;D&quot;: 1e-5, &quot;k&quot;: 8, &quot;Lx&quot;: 0.05, &quot;Ly&quot;: 0.05, &quot;T&quot;: 0.5, </span>
+<span class="sd">            &quot;nt&quot;: 2500, &quot;nx&quot;: 256 * 2, &quot;ny&quot;: 256 * 2,</span>
+<span class="sd">            &quot;initial_concentration&quot;: 100.0, &quot;step&quot;: 10,</span>
+<span class="sd">        }</span>
+<span class="sd">        simparams = SimulationParams(**params)</span>
+<span class="sd">        </span>
+<span class="sd">        C = np.zeros((simparams.nx,simparams.ny))</span>
+<span class="sd">        C[120:130, 120:130] = 1</span>
+<span class="sd">        X, Y = np.meshgrid(np.linspace(-1, 1, simparams.ny), np.linspace(-1, 1, simparams.nx))</span>
+<span class="sd">        D = np.exp(-((X)**2+(Y-1)**2)/1.5)</span>
+<span class="sd">        k = np.ones((simparams.nx, simparams.ny))</span>
+<span class="sd">        </span>
+<span class="sd">        results = run_simulation(simparams, FromCustom(C, D, k), C_0_cst=True)</span>
+<span class="sd">        </span>
+<span class="sd">        Simu_plot.simple(simparams, results[-1])</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">alphax</span><span class="p">,</span> <span class="n">alphay</span><span class="p">,</span> <span class="n">betax</span><span class="p">,</span> <span class="n">betay</span> <span class="o">=</span> <span class="n">init_method</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">C_0_cst</span><span class="p">:</span>
+        <span class="n">C_i</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">C_i</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">C0</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">C0</span>
+
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span>
+    <span class="n">crit_stab</span><span class="p">(</span><span class="n">alphax</span><span class="p">,</span> <span class="n">alphay</span><span class="p">)</span>
+    <span class="n">cax</span> <span class="o">=</span> <span class="n">alphax</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">cay</span> <span class="o">=</span> <span class="n">alphay</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">cbx</span> <span class="o">=</span> <span class="n">betax</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">cby</span> <span class="o">=</span> <span class="n">betay</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">L_result</span> <span class="o">=</span> <span class="p">[</span><span class="n">C</span><span class="o">.</span><span class="n">copy</span><span class="p">()]</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Quantité de matière totale initiale : </span><span class="si">{</span><span class="n">N_tot</span><span class="p">(</span><span class="n">L_result</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">params</span><span class="o">.</span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="o">.</span><span class="n">dy</span><span class="p">)</span><span class="si">:</span><span class="s2">e</span><span class="si">}</span><span class="s2"> mol&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">nt</span><span class="p">)):</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">compute_step_euler</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">cax</span><span class="p">,</span> <span class="n">cay</span><span class="p">,</span> <span class="n">cbx</span><span class="p">,</span> <span class="n">cby</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">C_i</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">C</span><span class="p">[</span><span class="n">C_i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">C_i</span><span class="p">[</span><span class="n">C_i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">save_last_only</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">L_result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">save_last_only</span><span class="p">:</span>
+        <span class="n">L_result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Quantité de matière totale finale : </span><span class="si">{</span><span class="n">N_tot</span><span class="p">(</span><span class="n">L_result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">params</span><span class="o">.</span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="o">.</span><span class="n">dy</span><span class="p">)</span><span class="si">:</span><span class="s2">e</span><span class="si">}</span><span class="s2"> mol&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">L_result</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, A. CORBILLET, I. TOUAIMIA.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

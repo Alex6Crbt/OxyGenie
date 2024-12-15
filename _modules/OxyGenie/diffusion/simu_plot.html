@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OxyGenie.diffusion.simu_plot &#8212; OxyGenie 1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/OxyGenie/diffusion/simu_plot';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="OxyGenie 1.0 documentation - Home"/>
+    <img src="../../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="OxyGenie 1.0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api_reference.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Alex6Crbt/OxyGenie" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../examples.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api_reference.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Alex6Crbt/OxyGenie" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">OxyGenie.diffusion.simu_plot</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for OxyGenie.diffusion.simu_plot</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.animation</span> <span class="kn">import</span> <span class="n">FuncAnimation</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LogNorm</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">.simu_func</span> <span class="kn">import</span> <span class="n">N_tot</span>
+
+
+<div class="viewcode-block" id="Simu_plot">
+<a class="viewcode-back" href="../../../code/OxyGenie.diffusion.html#OxyGenie.diffusion.Simu_plot">[docs]</a>
+<span class="k">class</span> <span class="nc">Simu_plot</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># plt.style.use(&quot;dark_background&quot;)</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="Simu_plot.simple">
+<a class="viewcode-back" href="../../../code/OxyGenie.diffusion.html#OxyGenie.diffusion.Simu_plot.simple">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">simple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">C_result</span><span class="p">,</span> <span class="n">D</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates a static plot showing the final concentration field. Optionally includes a plot of the diffusion coefficient if D is provided.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">D</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+            <span class="n">im</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">C_result</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Lx</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+                                              <span class="n">params</span><span class="o">.</span><span class="n">Ly</span><span class="p">),</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;hot&#39;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Concentration&quot;</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x </span><span class="se">\\</span><span class="s2"> (cm)$&quot;</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y </span><span class="se">\\</span><span class="s2"> (cm)$&quot;</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Concentration finale après $</span><span class="si">{</span><span class="n">params</span><span class="o">.</span><span class="n">T</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2"> </span><span class="se">\\</span><span class="s2"> s$&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+            <span class="n">im</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">C_result</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Lx</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+                                              <span class="n">params</span><span class="o">.</span><span class="n">Ly</span><span class="p">),</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;hot&#39;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Concentration&quot;</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x </span><span class="se">\\</span><span class="s2"> (cm)$&quot;</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y </span><span class="se">\\</span><span class="s2"> (cm)$&quot;</span><span class="p">)</span>
+            <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Concentration finale après $</span><span class="si">{</span><span class="n">params</span><span class="o">.</span><span class="n">T</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2"> </span><span class="se">\\</span><span class="s2"> s$&quot;</span><span class="p">)</span>
+            <span class="n">im2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Lx</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Ly</span><span class="p">),</span>
+                             <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">LogNorm</span><span class="p">())</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Coefficient de diffusion&quot;</span><span class="p">)</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x </span><span class="se">\\</span><span class="s2"> (cm)$&quot;</span><span class="p">)</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y </span><span class="se">\\</span><span class="s2"> (cm)$&quot;</span><span class="p">)</span>
+            <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Coefficient de diffusion&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Simu_plot.champ_vect">
+<a class="viewcode-back" href="../../../code/OxyGenie.diffusion.html#OxyGenie.diffusion.Simu_plot.champ_vect">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">champ_vect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">L_result</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">s_ech</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Visualizes the concentration gradient as a vector field overlay on a concentration map for a specific time step.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+        <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">L_result</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Lx</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Ly</span><span class="p">),</span>
+                       <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>  <span class="c1"># Carte de concentration</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Concentration&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Calcul des gradients pour la frame courante</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Gradients temporels</span>
+            <span class="n">dC_dy</span><span class="p">,</span> <span class="n">dC_dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="o">-</span><span class="n">L_result</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">L_result</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Champ vectoriel des flux de concentration à T = </span><span class="si">{</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">nt</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">params</span><span class="o">.</span><span class="n">dt</span><span class="si">:</span><span class="s2">0.1e</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Gradients temporels</span>
+            <span class="n">dC_dy</span><span class="p">,</span> <span class="n">dC_dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="o">-</span><span class="n">L_result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">L_result</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Champ vectoriel des flux de concentration à T = </span><span class="si">{</span><span class="n">i</span><span class="o">*</span><span class="n">params</span><span class="o">.</span><span class="n">dt</span><span class="si">:</span><span class="s2">0.1e</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Norme des vecteurs (éviter division par zéro avec 1e-10)</span>
+        <span class="c1"># c = np.max(dC_dx**2 + dC_dy**2)</span>
+        <span class="n">dC_dx</span> <span class="o">=</span> <span class="n">dC_dx</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dx</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
+        <span class="n">dC_dy</span> <span class="o">=</span> <span class="n">dC_dy</span> <span class="o">/</span> <span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">dy</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
+
+        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">dC_dx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">dC_dy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-10</span>
+
+        <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Lx</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">nx</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span>
+            <span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Ly</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span><span class="p">)</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+        <span class="c1"># Sous-échantillonnage des résultats</span>
+        <span class="k">if</span> <span class="n">s_ech</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">pdC_dx</span><span class="p">,</span> <span class="n">pdC_dy</span><span class="p">,</span> <span class="n">pc</span> <span class="o">=</span> <span class="n">X</span><span class="p">[::</span><span class="n">s_ech</span><span class="p">,</span> <span class="p">::</span><span class="n">s_ech</span><span class="p">],</span> <span class="n">Y</span><span class="p">[::</span><span class="n">s_ech</span><span class="p">,</span>
+                                                              <span class="p">::</span><span class="n">s_ech</span><span class="p">],</span> <span class="n">dC_dx</span><span class="p">[::</span><span class="n">s_ech</span><span class="p">,</span> <span class="p">::</span><span class="n">s_ech</span><span class="p">],</span> <span class="n">dC_dy</span><span class="p">[::</span><span class="n">s_ech</span><span class="p">,</span> <span class="p">::</span><span class="n">s_ech</span><span class="p">],</span> <span class="n">c</span><span class="p">[::</span><span class="n">s_ech</span><span class="p">,</span> <span class="p">::</span><span class="n">s_ech</span><span class="p">]</span>
+            <span class="c1"># ,   scale=1e-0/(2*Lx),)</span>
+            <span class="n">q</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">pdC_dx</span><span class="p">,</span> <span class="n">pdC_dy</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">pdC_dx</span><span class="p">,</span> <span class="n">pdC_dy</span><span class="p">,</span> <span class="n">pc</span> <span class="o">=</span> <span class="n">X</span><span class="p">[::</span><span class="n">s_ech</span><span class="p">,</span> <span class="p">::</span><span class="n">s_ech</span><span class="p">],</span> <span class="n">Y</span><span class="p">[::</span><span class="n">s_ech</span><span class="p">,</span> <span class="p">::</span><span class="n">s_ech</span><span class="p">],</span> <span class="n">dC_dx</span><span class="p">[::</span><span class="n">s_ech</span><span class="p">,</span> <span class="p">::</span><span class="n">s_ech</span><span class="p">]</span> <span class="o">/</span> \
+                <span class="n">c</span><span class="p">[::</span><span class="n">s_ech</span><span class="p">,</span> <span class="p">::</span><span class="n">s_ech</span><span class="p">],</span> <span class="n">dC_dy</span><span class="p">[::</span><span class="n">s_ech</span><span class="p">,</span> <span class="p">::</span><span class="n">s_ech</span><span class="p">]</span> <span class="o">/</span> \
+                <span class="n">c</span><span class="p">[::</span><span class="n">s_ech</span><span class="p">,</span> <span class="p">::</span><span class="n">s_ech</span><span class="p">],</span> <span class="n">c</span><span class="p">[::</span><span class="n">s_ech</span><span class="p">,</span> <span class="p">::</span><span class="n">s_ech</span><span class="p">]</span>
+            <span class="n">q</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">pdC_dx</span><span class="p">,</span> <span class="n">pdC_dy</span><span class="p">,</span> <span class="n">pc</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">,</span>
+                          <span class="n">scale</span><span class="o">=</span><span class="mf">1e-0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">Lx</span><span class="p">),)</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Flux de concentration&quot;</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$x </span><span class="se">\\</span><span class="s2"> (cm)$&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$y </span><span class="se">\\</span><span class="s2"> (cm)$&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Simu_plot.anim">
+<a class="viewcode-back" href="../../../code/OxyGenie.diffusion.html#OxyGenie.diffusion.Simu_plot.anim">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">anim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">L_result</span><span class="p">,</span> <span class="n">anim</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an animated visualization showing the evolution of the concentration field, along with graphs of related metrics such as total concentration over time.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">speed</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">speed</span>
+        <span class="c1"># Allocation d&#39;un tableau pour tous les éléments</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L_result</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L_result</span><span class="p">))):</span>
+            <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_tot</span><span class="p">(</span><span class="n">L_result</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">params</span><span class="o">.</span><span class="n">dx</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">dy</span><span class="p">)</span>
+
+        <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+        <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">),</span> <span class="p">(</span><span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span><span class="p">)</span> <span class="o">=</span> <span class="n">axs</span>
+
+        <span class="n">im</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">L_result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span>
+            <span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Lx</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Ly</span><span class="p">),</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;hot&#39;</span><span class="p">)</span>  <span class="c1"># , norm=LogNorm())</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Concentration&quot;</span><span class="p">)</span>
+
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x </span><span class="se">\\</span><span class="s2"> (cm)$&quot;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y </span><span class="se">\\</span><span class="s2"> (cm)$&quot;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Concentration finale après $</span><span class="si">{</span><span class="n">params</span><span class="o">.</span><span class="n">T</span><span class="si">:</span><span class="s2">0.1e</span><span class="si">}</span><span class="s2"> </span><span class="se">\\</span><span class="s2"> s$&quot;</span><span class="p">)</span>
+
+        <span class="n">line1</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">k</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">S</span><span class="p">))],</span> <span class="n">S</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">nt</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.99</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.01</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$n$ itérations&quot;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$N_</span><span class="si">{tot}</span><span class="s2">$&quot;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;$N_</span><span class="si">{tot}</span><span class="s2">$ en fonction de l&#39;itération&quot;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+        <span class="n">xc</span> <span class="o">=</span> <span class="n">L_result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">params</span><span class="o">.</span><span class="n">nx</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="n">line2</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">k</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dx</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">nx</span><span class="p">)],</span>
+                          <span class="n">xc</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+        <span class="n">yc</span> <span class="o">=</span> <span class="n">L_result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][:,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="n">line3</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">k</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dy</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">ny</span><span class="p">)],</span>
+                          <span class="n">yc</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+
+        <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Lx</span><span class="p">)</span>
+        <span class="c1"># ax3.set_ylim(min(xc)*0.99, max(xc)*1.01)</span>
+        <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$l </span><span class="se">\\</span><span class="s2"> (cm)$&quot;</span><span class="p">)</span>
+        <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$C$&quot;</span><span class="p">)</span>
+        <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;coupe de $C$ en x et y&quot;</span><span class="p">)</span>
+        <span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">ax3</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+        <span class="c1"># Initialisation des listes pour stocker les résultats</span>
+        <span class="n">Ltc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">nt</span> <span class="o">//</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span><span class="p">)</span>
+        <span class="n">Ltfx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">nt</span> <span class="o">//</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span><span class="p">)</span>
+        <span class="n">Ltfy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">nt</span> <span class="o">//</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span><span class="p">)</span>
+
+        <span class="c1"># Itération unique pour remplir les trois listes</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">nt</span> <span class="o">//</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span><span class="p">):</span>
+            <span class="n">frame</span> <span class="o">=</span> <span class="n">L_result</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="n">Ltc</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="n">params</span><span class="o">.</span><span class="n">nx</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+            <span class="n">Ltfx</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="n">params</span><span class="o">.</span><span class="n">nx</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">Ltfy</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+
+        <span class="c1"># Ltc = [L_result[k][params.nx//2, params.ny//2] for k in range(params.nt)]</span>
+        <span class="c1"># Ltfx = [L_result[k][params.nx//2, 0] for k in range(params.nt)]</span>
+        <span class="c1"># Ltfy = [L_result[k][0, params.ny//2] for k in range(params.nt)]</span>
+
+        <span class="n">line4</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">k</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">nt</span> <span class="o">//</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span><span class="p">)],</span> <span class="n">Ltc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Centre&quot;</span><span class="p">)</span>
+        <span class="n">line5</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">k</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span>
+            <span class="n">params</span><span class="o">.</span><span class="n">nt</span> <span class="o">//</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span><span class="p">)],</span> <span class="n">Ltfx</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Bord X Gauche&quot;</span><span class="p">)</span>
+        <span class="n">line6</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">k</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span>
+            <span class="n">params</span><span class="o">.</span><span class="n">nt</span> <span class="o">//</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span><span class="p">)],</span> <span class="n">Ltfy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Bord Y Bas&quot;</span><span class="p">)</span>
+
+        <span class="c1"># ax4.set_ylim(min(Ltc)*0.99, max(Ltc)*1.01)</span>
+        <span class="n">ax4</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$t </span><span class="se">\\</span><span class="s2"> (s)$&quot;</span><span class="p">)</span>
+        <span class="n">ax4</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$C$&quot;</span><span class="p">)</span>
+        <span class="n">ax4</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Evolution temporelle&quot;</span><span class="p">)</span>
+        <span class="n">ax4</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">ax4</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+        <span class="c1"># Fonction d&#39;animation</span>
+        <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+            <span class="c1"># print(len(Ltc[:speed*frame]), len([k*params.dt*params.step for k in range(speed*frame)]))</span>
+            <span class="c1"># print(frame, len(L_result)//speed)</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Met à jour l&#39;image pour chaque étape de l&#39;animation.&quot;&quot;&quot;</span>
+            <span class="n">im</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">L_result</span><span class="p">[</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span><span class="p">])</span>
+            <span class="n">line1</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">k</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)],</span> <span class="n">S</span><span class="p">[:</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="n">line2</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="n">k</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dx</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">nx</span><span class="p">)],</span>
+                           <span class="n">L_result</span><span class="p">[</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span><span class="p">][</span><span class="n">params</span><span class="o">.</span><span class="n">nx</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:])</span>
+            <span class="n">line3</span><span class="o">.</span><span class="n">set_data</span><span class="p">([</span><span class="n">k</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dy</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">ny</span><span class="p">)],</span>
+                           <span class="n">L_result</span><span class="p">[</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span><span class="p">][:,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span> <span class="o">//</span> <span class="mi">2</span><span class="p">])</span>
+            <span class="n">line4</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">k</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span><span class="p">)],</span> <span class="n">Ltc</span><span class="p">[:</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span><span class="p">])</span>
+            <span class="n">line5</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">k</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span><span class="p">)],</span> <span class="n">Ltfx</span><span class="p">[:</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span><span class="p">])</span>
+            <span class="n">line6</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">k</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">dt</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span><span class="p">)],</span> <span class="n">Ltfy</span><span class="p">[:</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span><span class="p">])</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">im</span><span class="p">,</span> <span class="n">line1</span><span class="p">,</span> <span class="n">line2</span><span class="p">,</span> <span class="n">line3</span><span class="p">,</span> <span class="n">line4</span><span class="p">,</span> <span class="n">line5</span><span class="p">,</span> <span class="n">line6</span><span class="p">,</span> <span class="p">]</span>
+
+        <span class="c1"># Création de l&#39;animation avec `FuncAnimation`</span>
+        <span class="k">if</span> <span class="n">anim</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+            <span class="n">ani</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span>
+                <span class="n">L_result</span><span class="p">)</span> <span class="o">//</span> <span class="n">speed</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="c1"># Afficher l&#39;animation</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">ani</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Simu_plot.anim_vect">
+<a class="viewcode-back" href="../../../code/OxyGenie.diffusion.html#OxyGenie.diffusion.Simu_plot.anim_vect">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">anim_vect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">L_result</span><span class="p">,</span> <span class="n">s_ech</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Produces an animated vector field representation of concentration gradients over time, combined with concentration maps.</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">speed</span><span class="p">,</span> <span class="n">nt</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">speed</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">nt</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">ny</span>
+
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+        <span class="c1"># ax3 = fig.add_axes([0.1, 0.1, 0.8, 0.4])</span>
+        <span class="n">im</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">L_result</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">L_result</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">],</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Lx</span><span class="p">,</span>
+                                                              <span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Ly</span><span class="p">),</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>  <span class="c1"># , norm=LogNorm())</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Concentration&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Initialisation du champ vectoriel</span>
+        <span class="n">dC_dy</span><span class="p">,</span> <span class="n">dC_dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span>
+            <span class="o">-</span><span class="n">L_result</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">nt</span> <span class="o">//</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span><span class="p">)</span> <span class="o">//</span> <span class="mi">4</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">L_result</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">nt</span> <span class="o">//</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dC_dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dC_dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-10</span>
+
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s_ech</span>
+
+        <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Lx</span><span class="p">,</span> <span class="n">nx</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">Ly</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">pdC_dx</span><span class="p">,</span> <span class="n">pdC_dy</span><span class="p">,</span> <span class="n">pc</span> <span class="o">=</span> <span class="n">X</span><span class="p">[::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">],</span> <span class="n">Y</span><span class="p">[::</span><span class="n">s</span><span class="p">,</span>
+                                                  <span class="p">::</span><span class="n">s</span><span class="p">],</span> <span class="n">dC_dx</span><span class="p">[::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">],</span> <span class="n">dC_dy</span><span class="p">[::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">],</span> <span class="n">c</span><span class="p">[::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">]</span>
+
+        <span class="n">quiver</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">pdC_dx</span> <span class="o">/</span> <span class="n">pc</span><span class="p">,</span> <span class="n">pdC_dy</span> <span class="o">/</span> <span class="n">pc</span><span class="p">,</span>
+                            <span class="n">pc</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1e1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">Lx</span><span class="p">),)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$x </span><span class="se">\\</span><span class="s2"> (cm)$&quot;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$y </span><span class="se">\\</span><span class="s2"> (cm)$&quot;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Concentration finale après $</span><span class="si">{</span><span class="n">params</span><span class="o">.</span><span class="n">T</span><span class="si">:</span><span class="s2">0.1e</span><span class="si">}</span><span class="s2"> </span><span class="se">\\</span><span class="s2"> s$&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Préallocation des tableaux pour optimiser la mémoire</span>
+        <span class="c1"># Stocke (pdC_dx, pdC_dy) pour chaque frame</span>
+        <span class="n">anidc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nt</span><span class="p">,</span> <span class="o">*</span><span class="n">pdC_dx</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="n">anic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">nt</span><span class="p">,</span> <span class="o">*</span><span class="n">pdC_dx</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>      <span class="c1"># Stocke pc pour chaque frame</span>
+
+        <span class="c1"># Calcul des gradients et stockage optimisé</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">nt</span> <span class="o">//</span> <span class="n">params</span><span class="o">.</span><span class="n">step</span><span class="p">)):</span>
+            <span class="c1"># if i%5==0:</span>
+
+            <span class="c1"># Calcul des gradients pour la frame courante</span>
+            <span class="c1"># Gradients complets</span>
+            <span class="n">dC_dy</span><span class="p">,</span> <span class="n">dC_dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="o">-</span><span class="n">L_result</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span><span class="c1">#-L_result[i] + </span>
+
+            <span class="c1"># Norme des vecteurs (éviter division par zéro avec 1e-10)</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dC_dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dC_dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">cc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dC_dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dC_dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-10</span>
+            <span class="c1"># Sous-échantillonnage des résultats</span>
+            <span class="n">pdC_dx</span><span class="p">,</span> <span class="n">pdC_dy</span><span class="p">,</span> <span class="n">pc</span> <span class="o">=</span> <span class="n">dC_dx</span><span class="p">[::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">],</span> <span class="n">dC_dy</span><span class="p">[::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">],</span> <span class="n">cc</span><span class="p">[::</span><span class="n">s</span><span class="p">,</span> <span class="p">::</span><span class="n">s</span><span class="p">]</span>
+            <span class="c1"># pdC_dx, pdC_dy, pc = dC_dx[::s, ::s], dC_dy[::s, ::s], cc[]</span>
+
+            <span class="c1"># Stockage dans les tableaux préalloués</span>
+            <span class="c1"># np.sign(pdC_dx)*np.log(1+np.abs(pdC_dx/c))</span>
+            <span class="n">anidc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">pdC_dx</span> <span class="o">/</span> <span class="n">pc</span>
+            <span class="c1"># np.sign(pdC_dy)*np.log(1+np.abs(pdC_dy/c))</span>
+            <span class="n">anidc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">pdC_dy</span> <span class="o">/</span> <span class="n">pc</span>
+            <span class="n">anic</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pc</span>
+
+        <span class="c1"># Fonction d&#39;animation</span>
+
+        <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">frame</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Met à jour l&#39;image pour chaque étape de l&#39;animation.&quot;&quot;&quot;</span>
+            <span class="n">im</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">L_result</span><span class="p">[</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span><span class="p">])</span>
+            <span class="n">dC_dy</span><span class="p">,</span> <span class="n">dC_dx</span> <span class="o">=</span> <span class="n">anidc</span><span class="p">[</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span><span class="p">,</span> <span class="p">:,</span>
+                                 <span class="p">:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">anidc</span><span class="p">[</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">pc</span> <span class="o">=</span> <span class="n">anic</span><span class="p">[</span><span class="n">speed</span> <span class="o">*</span> <span class="n">frame</span><span class="p">]</span>
+            <span class="c1"># im.set_array((dC_dy**2 + dC_dx**2)/c)</span>
+            <span class="c1"># Met à jour les données du quiver</span>
+            <span class="n">quiver</span><span class="o">.</span><span class="n">set_UVC</span><span class="p">(</span><span class="n">dC_dx</span><span class="p">,</span> <span class="n">dC_dy</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">pc</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">pc</span><span class="p">)))</span>
+            <span class="c1"># colorbar.update_normal(im)</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">im</span><span class="p">,</span> <span class="n">quiver</span><span class="p">]</span>
+
+        <span class="n">ani</span> <span class="o">=</span> <span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">frames</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span>
+            <span class="n">L_result</span><span class="p">)</span> <span class="o">//</span> <span class="n">speed</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ani</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, A. CORBILLET, I. TOUAIMIA.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

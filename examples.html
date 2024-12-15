@@ -1,0 +1,847 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Examples &#8212; OxyGenie 1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="api_reference.html" />
+    <link rel="prev" title="Quickstart" href="quickstart.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="OxyGenie 1.0 documentation - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="OxyGenie 1.0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api_reference.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Alex6Crbt/OxyGenie" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api_reference.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Alex6Crbt/OxyGenie" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Examples</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="examples">
+<span id="ref-exemples"></span><h1>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h1>
+<p>Here are a few examples:</p>
+</section>
+<section id="generate-and-visualize-a-vascular-network">
+<h1>Generate and visualize a vascular network<a class="headerlink" href="#generate-and-visualize-a-vascular-network" title="Link to this heading">#</a></h1>
+<p>In this example, we will demonstrate how to generate and visualize a vascular network from <strong>OxyGenie.pgvnet</strong>.</p>
+<ol class="arabic">
+<li><p><strong>Imports and Setup</strong></p>
+<p>First, we import the necessary libraries, including <strong>OxyGenie.pgvnet</strong>, <strong>NumPy</strong>, and <strong>Matplotlib</strong> for visualization.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">OxyGenie.pgvnet</span> <span class="k">as</span> <span class="nn">pgv</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;bmh&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>OxyGenie.pgvnet</strong>: The module used for creating vascular networks.</p></li>
+<li><p><strong>LinearSegmentedColormap</strong>: Creates custom color maps for visualization.</p></li>
+</ul>
+</li>
+<li><p><strong>Custom Color Map Definition</strong></p>
+<p>We define a custom color map to visualize the network with a smooth gradient.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the colors</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="s2">&quot;#4B0082&quot;</span><span class="p">,</span> <span class="s2">&quot;#E6BEFF&quot;</span><span class="p">]</span>
+<span class="c1"># Create a colormap with linear transitions</span>
+<span class="n">custom_cmap_lavande</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span>
+    <span class="s2">&quot;custom_cmap&quot;</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>LinearSegmentedColormap</strong>: Defines a color gradient transitioning from white to lavender.</p></li>
+</ul>
+</li>
+<li><p><strong>Global Parameters Setup</strong></p>
+<p>Next, we define several global parameters that control the behavior of the vascular network generation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Global parameters</span>
+<span class="n">Lc</span> <span class="o">=</span> <span class="mi">30</span>         <span class="c1"># Average segment length</span>
+<span class="n">lrang</span> <span class="o">=</span> <span class="mi">10</span>      <span class="c1"># Length variation</span>
+<span class="n">grid_size</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># Grid size</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span>  <span class="c1"># Angle variation amplitude</span>
+<span class="n">start_x</span><span class="p">,</span> <span class="n">start_y</span> <span class="o">=</span> <span class="n">grid_size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">grid_size</span> <span class="o">-</span> <span class="mi">10</span>  <span class="c1"># Bottom-center starting point</span>
+<span class="n">initial_angle</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Lc</strong>: Average segment length of branches in the network.</p></li>
+<li><p><strong>lrang</strong>: Variation in segment lengths.</p></li>
+<li><p><strong>grid_size</strong>: Size of the grid (1000x1000 pixels).</p></li>
+<li><p><strong>alpha</strong>: Angle variation amplitude for branch angles.</p></li>
+<li><p><strong>start_x, start_y</strong>: Starting point for branch generation.</p></li>
+<li><p><strong>initial_angle</strong>: Starting angle for the first branch.</p></li>
+</ul>
+</li>
+<li><p><strong>Grid Initialization</strong></p>
+<p>A grid is initialized to hold the vascular network. The grid size is set to <cite>grid_size</cite> and is filled with zeros.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize the grid</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">grid_size</span><span class="p">,</span> <span class="n">grid_size</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>grid</strong>: Represents the space where the vascular network will be generated.</p></li>
+</ul>
+</li>
+<li><p><strong>Pipeline Setup</strong></p>
+<p>The <strong>PGPipeline</strong> is set up with a series of operations that define how branches and the network are generated.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the sequence of operations</span>
+<span class="n">sequence</span> <span class="o">=</span> <span class="n">pgv</span><span class="o">.</span><span class="n">PGPipeline</span><span class="p">([</span>
+    <span class="n">pgv</span><span class="o">.</span><span class="n">BranchGen</span><span class="p">((</span><span class="n">Lc</span><span class="p">,</span> <span class="n">lrang</span><span class="p">),</span> <span class="p">(</span><span class="n">initial_angle</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">pgv</span><span class="o">.</span><span class="n">DilationN</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+    <span class="n">pgv</span><span class="o">.</span><span class="n">BranchGen</span><span class="p">((</span><span class="n">Lc</span><span class="p">,</span> <span class="n">lrang</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="n">pgv</span><span class="o">.</span><span class="n">DilationN</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">pgv</span><span class="o">.</span><span class="n">BranchGen</span><span class="p">((</span><span class="n">Lc</span><span class="p">,</span> <span class="n">lrang</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">3</span><span class="p">),</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="n">pgv</span><span class="o">.</span><span class="n">DilationN</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">pgv</span><span class="o">.</span><span class="n">BranchGen</span><span class="p">((</span><span class="n">Lc</span><span class="p">,</span> <span class="n">lrang</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="n">pgv</span><span class="o">.</span><span class="n">DilationN</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">pgv</span><span class="o">.</span><span class="n">PGVNet</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>PGPipeline</strong>: A pipeline of operations that define how the vascular network will be generated.</p></li>
+<li><p><strong>BranchGen</strong>: Generates branches based on length and angle range.</p></li>
+<li><p><strong>DilationN</strong>: Expands the network after branching.</p></li>
+<li><p><strong>PGVNet</strong>: Final operation that generates the vascular network.</p></li>
+</ul>
+</li>
+<li><p><strong>Grid Simulation and Visualization</strong></p>
+<p>The pipeline is executed multiple times to generate different variations of the vascular network. We then display the results using <strong>Matplotlib</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate n different images</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># Change the random seed for each image</span>
+    <span class="c1"># Initialize with an empty branch list</span>
+    <span class="n">ngrid</span><span class="p">,</span> <span class="n">nbranchs</span> <span class="o">=</span> <span class="n">sequence</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="p">[(</span><span class="n">start_x</span><span class="p">,</span> <span class="n">start_y</span><span class="p">)])</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ngrid</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Purples&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Hide x-axis</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Hide y-axis</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gen n°</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Title showing generation number</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>np.random.seed(i)</strong>: Changes the seed for each generated image to ensure unique results.</p></li>
+<li><p><strong>sequence(grid.copy(), [(start_x, start_y)])</strong>: Executes the pipeline and generates a new vascular network.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Code</strong></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3 sd-fade-in-slide-down">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">See the <cite>pgv_example.py</cite> file in the <a class="reference external" href="https://github.com/Alex6Crbt/OxyGenie">github repo</a></p>
+</div>
+</details><p><strong>Result</strong></p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/vasc2.png"><img alt="_images/vasc2.png" class="align-center" src="_images/vasc2.png" style="width: 90%;" />
+</a>
+</div></blockquote>
+</section>
+<section id="generate-and-simulate-tissue-oxygenation">
+<h1>Generate and Simulate Tissue Oxygenation<a class="headerlink" href="#generate-and-simulate-tissue-oxygenation" title="Link to this heading">#</a></h1>
+<p>In this example, we will demonstrate how to generate a vascular network using <strong>OxyGenie.pgvnet</strong>, and simulate tissue oxygenation based on that network using <strong>OxyGenie.diffusion</strong>. The process involves generating the vascular network, setting simulation parameters, and visualizing the results.</p>
+<ol class="arabic">
+<li><p><strong>Imports and Setup</strong></p>
+<p>First, we import the necessary libraries, including <strong>OxyGenie.pgvnet</strong>, <strong>OxyGenie.diffusion</strong>, <strong>NumPy</strong>, and <strong>Matplotlib</strong> for visualization.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">OxyGenie.diffusion</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">OxyGenie.pgvnet</span> <span class="k">as</span> <span class="nn">pgv</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;bmh&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>OxyGenie.pgvnet</strong>: The module used for creating vascular networks.</p></li>
+<li><p><strong>OxyGenie.diffusion</strong>: Contains methods and function for simulating oxygen diffusion in tissue.</p></li>
+</ul>
+</li>
+<li><p><strong>Define Simulation Parameters</strong></p>
+<p>We define the parameters required for the diffusion simulation, such as diffusion coefficient, simulation grid size, and time steps.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulation parameters</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;Lx&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Ly&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;nt&quot;</span><span class="p">:</span> <span class="mi">2500</span><span class="p">,</span> <span class="s2">&quot;nx&quot;</span><span class="p">:</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;ny&quot;</span><span class="p">:</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;initial_concentration&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s2">&quot;speed&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Initialize simulation parameters</span>
+<span class="n">simparams</span> <span class="o">=</span> <span class="n">SimulationParams</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>D</strong>: Diffusion coefficient (m²/s).</p></li>
+<li><p><strong>k</strong>: Absorption coefficient.</p></li>
+<li><p><strong>Lx, Ly</strong>: Length of the simulation domain in x and y directions.</p></li>
+<li><p><strong>T</strong>: Total time of simulation.</p></li>
+<li><p><strong>nt</strong>: Number of time steps.</p></li>
+<li><p><strong>nx, ny</strong>: Grid resolution in x and y directions.</p></li>
+<li><p><strong>initial_concentration</strong>: Initial oxygen concentration.</p></li>
+<li><p><strong>speed</strong>: Speed of simulation.</p></li>
+<li><p><strong>step</strong>: Step size for the simulation.</p></li>
+</ul>
+</li>
+<li><p><strong>Generate Vascular Network</strong></p>
+<p>Next, we generate the vascular network using <strong>OxyGenie.pgvnet</strong>’s <strong>simple_generation</strong> method, which simulates a basic network of vessels.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate vascular network</span>
+<span class="n">Vnet</span> <span class="o">=</span> <span class="n">pgv</span><span class="o">.</span><span class="n">simple_generation</span><span class="p">(</span><span class="n">grid_size</span><span class="o">=</span><span class="mi">1280</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Vnet</strong>: A generated vascular network stored as an array.</p></li>
+</ul>
+</li>
+<li><p><strong>Run Diffusion Simulation</strong></p>
+<p>With the network generated, we simulate oxygen diffusion using <strong>OxyGenie.diffusion.run_simulation</strong>. The simulation is run on the generated vascular network, with the oxygen concentration modeled over time.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run simulation with generated vascular network</span>
+<span class="n">L_result</span> <span class="o">=</span> <span class="n">run_simulation</span><span class="p">(</span><span class="n">simparams</span><span class="p">,</span> <span class="n">FromPGVNet</span><span class="p">(</span><span class="n">Vnet</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">C_0_cst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>L_result</strong>: The result of the simulation containing oxygen concentration values over time.</p></li>
+</ul>
+</li>
+<li><p><strong>Custom Simulation Example</strong></p>
+<p>You can also run the simulation with a custom initial concentration and diffusion parameters. This demonstrates flexibility in defining the initial conditions for the simulation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Custom simulation parameters</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">simparams</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">simparams</span><span class="o">.</span><span class="n">ny</span><span class="p">))</span>
+<span class="n">C</span><span class="p">[</span><span class="mi">120</span><span class="p">:</span><span class="mi">130</span><span class="p">,</span> <span class="mi">120</span><span class="p">:</span><span class="mi">130</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">simparams</span><span class="o">.</span><span class="n">ny</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">simparams</span><span class="o">.</span><span class="n">nx</span><span class="p">))</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">((</span><span class="n">X</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">Y</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.5</span><span class="p">)</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">simparams</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">simparams</span><span class="o">.</span><span class="n">ny</span><span class="p">))</span>
+
+<span class="c1"># Run custom simulation</span>
+<span class="n">L_result</span> <span class="o">=</span> <span class="n">run_simulation</span><span class="p">(</span><span class="n">simparams</span><span class="p">,</span> <span class="n">FromCustom</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">),</span> <span class="n">C_0_cst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>C</strong>: Custom initial concentration array.</p></li>
+<li><p><strong>D</strong>: Custom diffusion coefficient array.</p></li>
+<li><p><strong>k</strong>: Custom absorption coefficient array.</p></li>
+</ul>
+</li>
+<li><p><strong>Visualization</strong></p>
+<p>Finally, we visualize the results of the simulation. We display the concentration at the final time step and generate animations of the diffusion process.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualization of the results</span>
+<span class="n">Simu_plot</span><span class="o">.</span><span class="n">simple</span><span class="p">(</span><span class="n">simparams</span><span class="p">,</span> <span class="n">L_result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">simparams</span><span class="o">.</span><span class="n">D_mat</span><span class="p">)</span>
+<span class="n">Simu_plot</span><span class="o">.</span><span class="n">anim</span><span class="p">(</span><span class="n">simparams</span><span class="p">,</span> <span class="n">L_result</span><span class="p">,</span> <span class="n">anim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">Simu_plot</span><span class="o">.</span><span class="n">anim_vect</span><span class="p">(</span><span class="n">simparams</span><span class="p">,</span> <span class="n">L_result</span><span class="p">,</span> <span class="n">s_ech</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Simu_plot.simple</strong>: Displays the concentration at the final time step.</p></li>
+<li><p><strong>Simu_plot.anim</strong>: Creates an animation of the diffusion process.</p></li>
+<li><p><strong>Simu_plot.anim_vect</strong>: Generates an animation with vector representation.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Code</strong></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3 sd-fade-in-slide-down">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">See the <cite>simu_example.py</cite> file in the <a class="reference external" href="https://github.com/Alex6Crbt/OxyGenie">github repo</a></p>
+</div>
+</details><p><strong>Result</strong></p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/simu.png"><img alt="_images/simu.png" class="align-center" src="_images/simu.png" style="width: 90%;" />
+</a>
+<a class="reference internal image-reference" href="_images/simu2.png"><img alt="_images/simu2.png" class="align-center" src="_images/simu2.png" style="width: 90%;" />
+</a>
+<a class="reference internal image-reference" href="_images/simu3.png"><img alt="_images/simu3.png" class="align-center" src="_images/simu3.png" style="width: 90%;" />
+</a>
+</div></blockquote>
+</section>
+<section id="generate-and-simulate-oxygen-diffusion-with-neural-network">
+<h1>Generate and Simulate Oxygen Diffusion with Neural Network<a class="headerlink" href="#generate-and-simulate-oxygen-diffusion-with-neural-network" title="Link to this heading">#</a></h1>
+<p>In this example, we will demonstrate how to generate a vascular network using <strong>OxyGenie.pgvnet</strong>, simulate tissue oxygenation using <strong>OxyGenie.diffusion</strong>, and enhance the simulation with a trained neural network model, <strong>EUNet</strong>, from <strong>OxyGenie.learn</strong>.</p>
+<ol class="arabic">
+<li><p><strong>Imports and Setup</strong></p>
+<p>We begin by importing the necessary libraries, including <strong>OxyGenie.diffusion</strong>, <strong>OxyGenie.pgvnet</strong>, <strong>OxyGenie.learn.EUNet</strong>, <strong>NumPy</strong>, <strong>Matplotlib</strong>, and <strong>Torch</strong> for handling the neural network.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">OxyGenie.diffusion</span> <span class="k">as</span> <span class="nn">simu</span>
+<span class="kn">import</span> <span class="nn">OxyGenie.pgvnet</span> <span class="k">as</span> <span class="nn">pgv</span>
+<span class="kn">from</span> <span class="nn">OxyGenie.learn</span> <span class="kn">import</span> <span class="n">EUNet</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>EUNet</strong>: A pre-trained neural network for oxygen diffusion predictions.</p></li>
+<li><p><strong>OxyGenie.pgvnet</strong>: The module for generating vascular networks.</p></li>
+<li><p><strong>OxyGenie.diffusion</strong>: Contains methods for simulating oxygen diffusion.</p></li>
+<li><p><strong>torch</strong>: Used for loading the pre-trained model and running inference.</p></li>
+</ul>
+</li>
+<li><p><strong>Load the Pre-trained Neural Network</strong></p>
+<p>We load the pre-trained model weights into <strong>EUNet</strong> using the <cite>torch.load</cite> method.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the pre-trained model weights</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">EUNet</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;model2_weights_6E.pth&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>EUNet</strong>: The model is used for predicting oxygen concentrations based on the vascular network.</p></li>
+</ul>
+</li>
+<li><p><strong>Simulation with Varying Parameters</strong></p>
+<p>We simulate the diffusion process on a grid, using the pre-trained model to predict outcomes for varying input parameters.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">lk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)):</span>
+    <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">))</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="mi">40</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">mat</span><span class="p">[:,</span> <span class="p">::</span><span class="n">step</span><span class="p">]</span> <span class="o">=</span> <span class="mi">255</span>
+    <span class="n">mat</span><span class="p">[::</span><span class="n">step</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">255</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">lk</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="mf">5e-3</span><span class="p">]</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">mat</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="n">params</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>mat</strong>: A matrix representing the grid with different spacing (steps).</p></li>
+<li><p><strong>params</strong>: The parameters used to adjust the simulation based on the neural network prediction.</p></li>
+<li><p><strong>model.predict</strong>: The pre-trained model generates predictions based on the input matrix.</p></li>
+</ul>
+</li>
+<li><p><strong>Simulating Oxygen Diffusion with Random Network</strong></p>
+<p>We generate a random vascular network and simulate oxygen diffusion. The results from the model are used as the initial conditions for the simulation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">k_random</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">T_simu_rp</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">9</span> <span class="o">*</span> <span class="n">k_random</span> <span class="o">+</span> <span class="mf">2.5</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">9</span>
+<span class="n">nt_efficient</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T_simu_rp</span> <span class="o">*</span> <span class="mi">5000</span><span class="p">)</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="n">k_random</span><span class="p">,</span> <span class="s2">&quot;Lx&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Ly&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span> <span class="s2">&quot;nt&quot;</span><span class="p">:</span> <span class="mi">2500</span><span class="p">,</span> <span class="s2">&quot;nx&quot;</span><span class="p">:</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;ny&quot;</span><span class="p">:</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;initial_concentration&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s2">&quot;speed&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">simuparams</span> <span class="o">=</span> <span class="n">simu</span><span class="o">.</span><span class="n">SimulationParams</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+
+<span class="c1"># Generate random vascular network</span>
+<span class="n">V_net</span> <span class="o">=</span> <span class="n">pgv</span><span class="o">.</span><span class="n">simple_generation</span><span class="p">(</span><span class="n">grid_size</span><span class="o">=</span><span class="mi">1280</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">sp</span> <span class="o">=</span> <span class="n">pgv</span><span class="o">.</span><span class="n">sp_ratio</span><span class="p">(</span><span class="n">V_net</span><span class="p">)</span>
+
+<span class="c1"># Prepare input for the model</span>
+<span class="n">X_1</span> <span class="o">=</span> <span class="n">V_net</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">X_2</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">k_random</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">sp</span><span class="p">)]</span>
+
+<span class="c1"># Run prediction using the neural network</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">V_net</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="n">X_2</span><span class="p">)</span>
+<span class="n">out</span><span class="p">[</span><span class="n">out</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># Simulate oxygen diffusion with the predicted initial conditions</span>
+<span class="n">L_result</span> <span class="o">=</span> <span class="n">simu</span><span class="o">.</span><span class="n">run_simulation</span><span class="p">(</span><span class="n">simuparams</span><span class="p">,</span> <span class="n">simu</span><span class="o">.</span><span class="n">FromPGVNet</span><span class="p">(</span><span class="n">V_net</span><span class="p">),</span> <span class="n">C_0_cst</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_last_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">C0</span><span class="o">=</span><span class="n">out</span><span class="p">)</span>
+
+<span class="n">Y</span> <span class="o">=</span> <span class="n">L_result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Final simulation result</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>k_random</strong>: Random value chosen for the absorption coefficient.</p></li>
+<li><p><strong>V_net</strong>: The generated vascular network.</p></li>
+<li><p><strong>model.predict</strong>: The model’s prediction is used as the initial concentration for the diffusion simulation.</p></li>
+<li><p><strong>L_result</strong>: The results of the diffusion simulation.</p></li>
+</ul>
+</li>
+<li><p><strong>Visualization of the Simulation Results</strong></p>
+<p>We visualize the results of the diffusion simulation by displaying the concentration at the final time step and generating animations of the diffusion process.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">L_result</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">L_result</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;hot&quot;</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;hot&quot;</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">simu</span><span class="o">.</span><span class="n">Simu_plot</span><span class="o">.</span><span class="n">simple</span><span class="p">(</span><span class="n">simuparams</span><span class="p">,</span> <span class="n">L_result</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">simuparams</span><span class="o">.</span><span class="n">D_mat</span><span class="p">)</span>
+<span class="n">simu</span><span class="o">.</span><span class="n">Simu_plot</span><span class="o">.</span><span class="n">anim</span><span class="p">(</span><span class="n">simuparams</span><span class="p">,</span> <span class="n">L_result</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>L_result[len(L_result)//2]</strong>: Displays the intermediate result of the simulation.</p></li>
+<li><p><strong>Y</strong>: Displays the final result of the simulation at the steady state.</p></li>
+<li><p><strong>Simu_plot.simple</strong>: Visualizes the final concentration.</p></li>
+<li><p><strong>Simu_plot.anim</strong>: Creates an animation of the simulation process.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Code</strong></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3 sd-fade-in-slide-down">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Code</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">See the <cite>infer.py</cite> file in the <a class="reference external" href="https://github.com/Alex6Crbt/OxyGenie">github repo</a></p>
+</div>
+</details><p><strong>Result</strong></p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_static/testgrid.png"><img alt="_static/testgrid.png" class="align-center" src="_static/testgrid.png" style="width: 90%;" />
+</a>
+</div></blockquote>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="quickstart.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Quickstart</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="api_reference.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API Reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Examples</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-and-visualize-a-vascular-network">Generate and visualize a vascular network</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-and-simulate-tissue-oxygenation">Generate and Simulate Tissue Oxygenation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-and-simulate-oxygen-diffusion-with-neural-network">Generate and Simulate Oxygen Diffusion with Neural Network</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/examples.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, A. CORBILLET, I. TOUAIMIA.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

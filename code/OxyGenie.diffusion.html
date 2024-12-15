@@ -1,0 +1,1161 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>OxyGenie.diffusion &#8212; OxyGenie 1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'code/OxyGenie.diffusion';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="OxyGenie.learn" href="OxyGenie.learn.html" />
+    <link rel="prev" title="API Reference" href="../api_reference.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="OxyGenie 1.0 documentation - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="OxyGenie 1.0 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../api_reference.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Alex6Crbt/OxyGenie" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide.html">
+    User Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../api_reference.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/Alex6Crbt/OxyGenie" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">OxyGenie.diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OxyGenie.learn.html">OxyGenie.learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OxyGenie.pgvnet.html">OxyGenie.pgvnet</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../api_reference.html" class="nav-link">API Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">OxyGenie.diffusion</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="oxygenie-diffusion">
+<h1>OxyGenie.diffusion<a class="headerlink" href="#oxygenie-diffusion" title="Link to this heading">#</a></h1>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#OxyGenie.diffusion.FromCustom" title="OxyGenie.diffusion.FromCustom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OxyGenie.diffusion.FromCustom</span></code></a></p></td>
+<td><p>A class to initialize concentration, diffusion coefficients, and reaction rates from an custom distributions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#OxyGenie.diffusion.FromIMG" title="OxyGenie.diffusion.FromIMG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OxyGenie.diffusion.FromIMG</span></code></a></p></td>
+<td><p>A class to initialize concentration, diffusion coefficients, and reaction rates from an image.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#OxyGenie.diffusion.FromPGVNet" title="OxyGenie.diffusion.FromPGVNet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OxyGenie.diffusion.FromPGVNet</span></code></a></p></td>
+<td><p>A class to initialize concentration, diffusion coefficients, and reaction rates from a vascular network generated by the pgvnet sub-module.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#OxyGenie.diffusion.Simu_plot" title="OxyGenie.diffusion.Simu_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OxyGenie.diffusion.Simu_plot</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#OxyGenie.diffusion.SimulationParams" title="OxyGenie.diffusion.SimulationParams"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OxyGenie.diffusion.SimulationParams</span></code></a></p></td>
+<td><p>A class to define and manage the parameters for a 2D simulation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#OxyGenie.diffusion.run_simulation" title="OxyGenie.diffusion.run_simulation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OxyGenie.diffusion.run_simulation</span></code></a></p></td>
+<td><p>Runs the simulation of the 2D diffusion equation:</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#OxyGenie.diffusion.compute_step_rk4" title="OxyGenie.diffusion.compute_step_rk4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OxyGenie.diffusion.compute_step_rk4</span></code></a></p></td>
+<td><p>Performs one step of the 4th-order Runge-Kutta (RK4) method to update the concentration field.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#OxyGenie.diffusion.compute_step_euler" title="OxyGenie.diffusion.compute_step_euler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OxyGenie.diffusion.compute_step_euler</span></code></a></p></td>
+<td><p>Performs one step of the Euler method to update the concentration field.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#OxyGenie.diffusion.crit_stab" title="OxyGenie.diffusion.crit_stab"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OxyGenie.diffusion.crit_stab</span></code></a></p></td>
+<td><p>Evaluates the Courant–Friedrichs–Lewy (CFL) condition for numerical stability with the maximum values of <cite>alphax</cite> and <cite>alphay</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#OxyGenie.diffusion.F" title="OxyGenie.diffusion.F"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OxyGenie.diffusion.F</span></code></a></p></td>
+<td><p>Computes the rate of change of the concentration field <cite>C</cite> based on the diffusion and reaction terms.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class" id="module-OxyGenie.diffusion">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.FromCustom">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">OxyGenie.diffusion.</span></span><span class="sig-name descname"><span class="pre">FromCustom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C_init</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D_init</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_init</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_func.html#FromCustom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.FromCustom" title="Link to this definition">#</a></dt>
+<dd><p>A class to initialize concentration, diffusion coefficients, and reaction rates from an custom distributions.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p><cite>C_init</cite> and <cite>D_init</cite> values must be normalized to [0, 1].</p></li>
+<li><p><cite>k_init</cite> values must be normalized to [-1, 1].</p></li>
+</ul>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>C_init</strong> (<em>2D np.ndarray</em>) – Initial concentration distribution scaled in the range [0, 1].</p></li>
+<li><p><strong>D_init</strong> (<em>2D np.ndarray</em>) – Initial diffusion coefficient distribution scaled in the range [0, 1].</p></li>
+<li><p><strong>k_init</strong> (<em>2D np.ndarray</em>) – Initial reaction rate distribution scaled in the range [-1, 1].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><dl class="simple">
+<dt><cite>C</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Initialized concentration field based on grid values.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>D</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Diffusion coefficient field initialized based on grid values.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>k</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Absorbtion rate field initialized based on grid values.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>alphax</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Prefactor for diffusion in the x-direction.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>alphay</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Prefactor for diffusion in the y-direction.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>betax</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Prefactor for the diffusion flux term in the x-direction.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>betay</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Prefactor for the diffusion flux term in the y-direction</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">OxyGenie.diffusion</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;Lx&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Ly&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="s2">&quot;nt&quot;</span><span class="p">:</span> <span class="mi">2500</span><span class="p">,</span> <span class="s2">&quot;nx&quot;</span><span class="p">:</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;ny&quot;</span><span class="p">:</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;initial_concentration&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">simparams</span> <span class="o">=</span> <span class="n">SimulationParams</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">simparams</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span><span class="n">simparams</span><span class="o">.</span><span class="n">ny</span><span class="p">))</span>
+<span class="n">C</span><span class="p">[</span><span class="mi">120</span><span class="p">:</span><span class="mi">130</span><span class="p">,</span> <span class="mi">120</span><span class="p">:</span><span class="mi">130</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">simparams</span><span class="o">.</span><span class="n">ny</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">simparams</span><span class="o">.</span><span class="n">nx</span><span class="p">))</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">((</span><span class="n">X</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">Y</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mf">1.5</span><span class="p">)</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">simparams</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">simparams</span><span class="o">.</span><span class="n">ny</span><span class="p">))</span>
+
+<span class="n">from_Custom</span> <span class="o">=</span> <span class="n">FromCustom</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">alphax</span><span class="p">,</span> <span class="n">alphay</span><span class="p">,</span> <span class="n">betax</span><span class="p">,</span> <span class="n">betay</span> <span class="o">=</span> <span class="n">from_Custom</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.FromIMG">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">OxyGenie.diffusion.</span></span><span class="sig-name descname"><span class="pre">FromIMG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vasc_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_func.html#FromIMG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.FromIMG" title="Link to this definition">#</a></dt>
+<dd><p>A class to initialize concentration, diffusion coefficients, and reaction rates from an image.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The provided image is resized to match the grid size defined by <cite>params.nx</cite> and <cite>params.ny</cite>.</p></li>
+<li><p>The concentration (<cite>C</cite>), diffusion coefficient (<cite>D</cite>), and reaction rate (<cite>k</cite>) fields are initialized
+based on chanel values in the grid.</p></li>
+<li><p>Return via <cite>__call__</cite></p></li>
+</ul>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vasc_path</strong> (<em>str</em>) – Path to the image file containing spatial information. The image is used to define regions with different
+diffusion and reaction properties based on the channel pixel values.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><dl class="simple">
+<dt><cite>C</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Initialized concentration field based on grid values.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>D</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Diffusion coefficient field initialized based on grid values.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>k</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Absorbtion rate field initialized based on grid values.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>alphax</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Prefactor for diffusion in the x-direction.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>alphay</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Prefactor for diffusion in the y-direction.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>betax</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Prefactor for the diffusion flux term in the x-direction.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>betay</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Prefactor for the diffusion flux term in the y-direction</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">OxyGenie.diffusion</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;Lx&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Ly&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="s2">&quot;nt&quot;</span><span class="p">:</span> <span class="mi">2500</span><span class="p">,</span> <span class="s2">&quot;nx&quot;</span><span class="p">:</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;ny&quot;</span><span class="p">:</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;initial_concentration&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">simparams</span> <span class="o">=</span> <span class="n">SimulationParams</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+<span class="n">from_IMG</span> <span class="o">=</span> <span class="n">FromIMG</span><span class="p">(</span><span class="s2">&quot;/path.jpg&quot;</span><span class="p">)</span>
+<span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">alphax</span><span class="p">,</span> <span class="n">alphay</span><span class="p">,</span> <span class="n">betax</span><span class="p">,</span> <span class="n">betay</span> <span class="o">=</span> <span class="n">from_IMG</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.FromPGVNet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">OxyGenie.diffusion.</span></span><span class="sig-name descname"><span class="pre">FromPGVNet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_func.html#FromPGVNet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.FromPGVNet" title="Link to this definition">#</a></dt>
+<dd><p>A class to initialize concentration, diffusion coefficients, and reaction rates from a vascular network generated by the pgvnet sub-module.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The provided grid is resized to match the grid size defined by <cite>params.nx</cite> and <cite>params.ny</cite>.</p></li>
+<li><p>The concentration (<cite>C</cite>), diffusion coefficient (<cite>D</cite>), and reaction rate (<cite>k</cite>) fields are initialized
+based on values in the grid.</p></li>
+<li><dl class="simple">
+<dt>Diffusion coefficient and absorbtion rate are adjusted based on pixel values, where:</dt><dd><ul>
+<li><p>Areas with higher grid values represent regions with higher diffusion coefficients.</p></li>
+<li><p>Regions with pixel values below a threshold represent areas with production or absorption rates.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Return via <cite>__call__</cite></p></li>
+</ul>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>grid</strong> (<em>2D np.ndarray</em>) – Vascular network generated by the pgvnet sub-module. The grid values are
+used to define regions with different diffusion and absorbtion properties based on thresholds.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><dl class="simple">
+<dt><cite>C</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Initialized concentration field based on grid values.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>D</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Diffusion coefficient field initialized based on grid values.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>k</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Absorbtion rate field initialized based on grid values.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>alphax</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Prefactor for diffusion in the x-direction.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>alphay</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Prefactor for diffusion in the y-direction.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>betax</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Prefactor for the diffusion flux term in the x-direction.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>betay</cite><span class="classifier">2D np.ndarray</span></dt><dd><p>Prefactor for the diffusion flux term in the y-direction</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">OxyGenie.diffusion</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">OxyGenie.pgvnet</span> <span class="k">as</span> <span class="nn">pgv</span>
+
+<span class="n">grid</span> <span class="o">=</span> <span class="n">pgv</span><span class="o">.</span><span class="n">simple_generation</span><span class="p">(</span><span class="n">grid_size</span><span class="o">=</span><span class="mi">1280</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;Lx&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Ly&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="s2">&quot;nt&quot;</span><span class="p">:</span> <span class="mi">2500</span><span class="p">,</span> <span class="s2">&quot;nx&quot;</span><span class="p">:</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;ny&quot;</span><span class="p">:</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;initial_concentration&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">simparams</span> <span class="o">=</span> <span class="n">SimulationParams</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+<span class="n">from_pgvnet</span> <span class="o">=</span> <span class="n">FromPGVNet</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+<span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">alphax</span><span class="p">,</span> <span class="n">alphay</span><span class="p">,</span> <span class="n">betax</span><span class="p">,</span> <span class="n">betay</span> <span class="o">=</span> <span class="n">from_pgvnet</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.Simu_plot">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">OxyGenie.diffusion.</span></span><span class="sig-name descname"><span class="pre">Simu_plot</span></span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_plot.html#Simu_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.Simu_plot" title="Link to this definition">#</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.Simu_plot.anim">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">anim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_plot.html#Simu_plot.anim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.Simu_plot.anim" title="Link to this definition">#</a></dt>
+<dd><p>Creates an animated visualization showing the evolution of the concentration field, along with graphs of related metrics such as total concentration over time.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.Simu_plot.anim_vect">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">anim_vect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_ech</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_plot.html#Simu_plot.anim_vect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.Simu_plot.anim_vect" title="Link to this definition">#</a></dt>
+<dd><p>Produces an animated vector field representation of concentration gradients over time, combined with concentration maps.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.Simu_plot.champ_vect">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">champ_vect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s_ech</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_plot.html#Simu_plot.champ_vect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.Simu_plot.champ_vect" title="Link to this definition">#</a></dt>
+<dd><p>Visualizes the concentration gradient as a vector field overlay on a concentration map for a specific time step.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.Simu_plot.simple">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">simple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_plot.html#Simu_plot.simple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.Simu_plot.simple" title="Link to this definition">#</a></dt>
+<dd><p>Generates a static plot showing the final concentration field. Optionally includes a plot of the diffusion coefficient if D is provided.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.SimulationParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">OxyGenie.diffusion.</span></span><span class="sig-name descname"><span class="pre">SimulationParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_params.html#SimulationParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.SimulationParams" title="Link to this definition">#</a></dt>
+<dd><p>A class to define and manage the parameters for a 2D simulation.</p>
+<p>This class handles both user-defined and derived parameters needed for numerical
+simulations, including spatial and temporal discretizations. It ensures consistency
+among related parameters (e.g., grid size and spacing) and recalculates derived
+parameters when key attributes are updated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> (<em>dict</em>) – <p>Arbitrary keyword arguments to initialize the simulation parameters:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>D<span class="classifier">float, optional</span></dt><dd><p>Diffusion coefficient (default: 1e-5).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>k<span class="classifier">float, optional</span></dt><dd><p>Absorbtion rate constant (default: 0).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Lx<span class="classifier">float, optional</span></dt><dd><p>Length of the simulation domain in the x-direction (default: 0.01).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Ly<span class="classifier">float, optional</span></dt><dd><p>Length of the simulation domain in the y-direction (default: 0.01).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>T<span class="classifier">float, optional</span></dt><dd><p>Total simulation time (default: 0.01).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>initial_concentration<span class="classifier">float, optional</span></dt><dd><p>Initial concentration (default: 100.0).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>speed<span class="classifier">float, optional</span></dt><dd><p>Speed of the simulation (default: 1).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>step<span class="classifier">int, optional</span></dt><dd><p>Simulation step parameter (default: 1).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>nt<span class="classifier">int, optional</span></dt><dd><p>Number of time steps (default: 10000).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>nx<span class="classifier">int, optional</span></dt><dd><p>Number of spatial steps in the x-direction (default: 100).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>ny<span class="classifier">int, optional</span></dt><dd><p>Number of spatial steps in the y-direction (default: 100).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>dt<span class="classifier">float, optional</span></dt><dd><p>Time step size (computed if not provided).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>dx<span class="classifier">float, optional</span></dt><dd><p>Grid spacing in the x-direction (computed if not provided).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>dy<span class="classifier">float, optional</span></dt><dd><p>Grid spacing in the y-direction (computed if not provided).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;Lx&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Ly&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;nt&quot;</span><span class="p">:</span> <span class="mi">2500</span><span class="p">,</span> <span class="s2">&quot;nx&quot;</span><span class="p">:</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;ny&quot;</span><span class="p">:</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;initial_concentration&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s2">&quot;speed&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">simparams</span> <span class="o">=</span> <span class="n">SimulationParams</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">simparams</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.SimulationParams.Lx">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Lx</span></span><a class="headerlink" href="#OxyGenie.diffusion.SimulationParams.Lx" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.SimulationParams.Ly">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Ly</span></span><a class="headerlink" href="#OxyGenie.diffusion.SimulationParams.Ly" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.SimulationParams.T">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">T</span></span><a class="headerlink" href="#OxyGenie.diffusion.SimulationParams.T" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.SimulationParams.dt">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dt</span></span><a class="headerlink" href="#OxyGenie.diffusion.SimulationParams.dt" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.SimulationParams.dx">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dx</span></span><a class="headerlink" href="#OxyGenie.diffusion.SimulationParams.dx" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.SimulationParams.dy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dy</span></span><a class="headerlink" href="#OxyGenie.diffusion.SimulationParams.dy" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.SimulationParams.nt">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nt</span></span><a class="headerlink" href="#OxyGenie.diffusion.SimulationParams.nt" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.SimulationParams.nx">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nx</span></span><a class="headerlink" href="#OxyGenie.diffusion.SimulationParams.nx" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.SimulationParams.ny">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ny</span></span><a class="headerlink" href="#OxyGenie.diffusion.SimulationParams.ny" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.F">
+<span class="sig-prename descclassname"><span class="pre">OxyGenie.diffusion.</span></span><span class="sig-name descname"><span class="pre">F</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cby</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_func.html#F"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.F" title="Link to this definition">#</a></dt>
+<dd><p>Computes the rate of change of the concentration field <cite>C</cite> based on the diffusion and reaction terms.</p>
+<p>This function calculates the right-hand side of the diffusion-reaction equation using finite differences
+for the diffusion terms and a simple linear reaction term.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This function is only working for RK4 compute step scheme</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.N_tot">
+<span class="sig-prename descclassname"><span class="pre">OxyGenie.diffusion.</span></span><span class="sig-name descname"><span class="pre">N_tot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_func.html#N_tot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.N_tot" title="Link to this definition">#</a></dt>
+<dd><p>Calculates the total number of particles in a 2D concentration field.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>-Avogadro’s number is used to convert molar concentration
+to the number of particles.</p>
+<p>-The boundary of width <cite>l = 1</cite> is excluded from the sum to avoid edge effects from the boundary condintions.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>C</strong> (<em>2D np.ndarray</em>) – The 2D array representing the concentration field (in moles per square meter).
+The boundary region is excluded from the calculation.</p></li>
+<li><p><strong>dx</strong> (<em>float</em>) – The grid spacing in the x-direction (in meters).</p></li>
+<li><p><strong>dy</strong> (<em>float</em>) – The grid spacing in the y-direction (in meters).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total number of particles within the central region of the grid.
+The result is dimensionless.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.compute_step_euler">
+<span class="sig-prename descclassname"><span class="pre">OxyGenie.diffusion.</span></span><span class="sig-name descname"><span class="pre">compute_step_euler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cby</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_func.html#compute_step_euler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.compute_step_euler" title="Link to this definition">#</a></dt>
+<dd><p>Performs one step of the Euler method to update the concentration field.</p>
+<p>The update is based on the following form of the diffusion equation:</p>
+<p><span class="math notranslate nohighlight">\(\frac{\partial C(\textbf{r}, t)}{\partial t} = \text{div}(D(\textbf{r}) \cdot \overrightarrow{\text{grad}}(C(\textbf{r}, t)) - k(\textbf{r}) \cdot C(\textbf{r}, t)\)</span></p>
+<p>where the diffusion terms are discretized using finite differences (forward for flux terms and central for diffusion terms).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The boundary conditions are set to be “no flux” (Neumann).</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The stability criterion needs to be respected.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>C</strong> (<em>2D np.ndarray</em>) – The current concentration field.</p></li>
+<li><p><strong>D</strong> (<em>2D np.ndarray</em>) – The diffusion coefficient field, with the same shape as <cite>C</cite>.</p></li>
+<li><p><strong>k</strong> (<em>2D np.ndarray</em>) – The absorbtion rate field, with the same shape as <cite>C</cite>.</p></li>
+<li><p><strong>cax</strong> (<em>2D np.ndarray</em>) – The precomputed prefactor for the diffusion term in the x-direction.</p></li>
+<li><p><strong>cay</strong> (<em>2D np.ndarray</em>) – The precomputed prefactor for the diffusion term in the y-direction.</p></li>
+<li><p><strong>cbx</strong> (<em>2D np.ndarray</em>) – The precomputed prefactor for the diffusion flux term in the x-direction.</p></li>
+<li><p><strong>cby</strong> (<em>2D np.ndarray</em>) – The precomputed prefactor for the diffusion flux term in the y-direction.</p></li>
+<li><p><strong>dt</strong> (<em>float</em>) – The time step (<cite>dt</cite>) used for the RK4 method to update the concentration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The updated concentration field <cite>C_new</cite> after one RK4 step, with the same shape as <cite>C</cite>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.compute_step_rk4">
+<span class="sig-prename descclassname"><span class="pre">OxyGenie.diffusion.</span></span><span class="sig-name descname"><span class="pre">compute_step_rk4</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">C</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cbx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cby</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_func.html#compute_step_rk4"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.compute_step_rk4" title="Link to this definition">#</a></dt>
+<dd><p>Performs one step of the 4th-order Runge-Kutta (RK4) method to update the concentration field.</p>
+<p>The RK4 method is a numerical technique for solving ordinary differential equations (ODEs).
+This function applies it to the concentration field <cite>C</cite> in a 2D grid, accounting for diffusion and absorbtion.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The boundary conditions are set to be “no flux” (Neumann).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>C</strong> (<em>2D np.ndarray</em>) – The current concentration field.</p></li>
+<li><p><strong>D</strong> (<em>2D np.ndarray</em>) – The diffusion coefficient field, with the same shape as <cite>C</cite>.</p></li>
+<li><p><strong>k</strong> (<em>2D np.ndarray</em>) – The absorbtion rate field, with the same shape as <cite>C</cite>.</p></li>
+<li><p><strong>cax</strong> (<em>2D np.ndarray</em>) – The precomputed prefactor for the diffusion term in the x-direction.</p></li>
+<li><p><strong>cay</strong> (<em>2D np.ndarray</em>) – The precomputed prefactor for the diffusion term in the y-direction.</p></li>
+<li><p><strong>cbx</strong> (<em>2D np.ndarray</em>) – The precomputed prefactor for the diffusion flux term in the x-direction.</p></li>
+<li><p><strong>cby</strong> (<em>2D np.ndarray</em>) – The precomputed prefactor for the diffusion flux term in the y-direction.</p></li>
+<li><p><strong>dt</strong> (<em>float</em>) – The time step (<cite>dt</cite>) used for the RK4 method to update the concentration.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The updated concentration field <cite>C_new</cite> after one RK4 step, with the same shape as <cite>C</cite>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.crit_stab">
+<span class="sig-prename descclassname"><span class="pre">OxyGenie.diffusion.</span></span><span class="sig-name descname"><span class="pre">crit_stab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alphax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphay</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_func.html#crit_stab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.crit_stab" title="Link to this definition">#</a></dt>
+<dd><p>Evaluates the Courant–Friedrichs–Lewy (CFL) condition for numerical stability with the maximum values of <cite>alphax</cite> and <cite>alphay</cite>.</p>
+<p>The function checks if the sum of the maximum values of <cite>alphax</cite> and <cite>alphay</cite> exceeds
+the stability threshold (0.5). If the criterion is not met, a <cite>ValueError</cite> is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alphax</strong> (<em>2D np.ndarray</em>) – Here: <span class="math notranslate nohighlight">\(\alpha_x = \frac{D \cdot \Delta t}{(\Delta x)^2}\)</span></p></li>
+<li><p><strong>alphay</strong> (<em>2D np.ndarray</em>) – Here: <span class="math notranslate nohighlight">\(\alpha_y = \frac{D \cdot \Delta t}{(\Delta y)^2}\)</span></p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the stability criterion is not respected (stab_coef &gt;= 0.5). The error message includes
+    the computed stability coefficient.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Prints a message indicating whether the stability criterion is respected.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OxyGenie.diffusion.run_simulation">
+<span class="sig-prename descclassname"><span class="pre">OxyGenie.diffusion.</span></span><span class="sig-name descname"><span class="pre">run_simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C_0_cst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_last_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">C0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/OxyGenie/diffusion/simu_func.html#run_simulation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#OxyGenie.diffusion.run_simulation" title="Link to this definition">#</a></dt>
+<dd><p>Runs the simulation of the 2D diffusion equation:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial C(\mathbf{r}, t)}{\partial t} = \nabla \cdot \big(D(\mathbf{r}) \cdot \nabla C(\mathbf{r}, t)\big) - k(\mathbf{r}) \cdot C(\mathbf{r}, t)\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> (<em>object</em>) – Contains the simulation parameters, including time step (<cite>dt</cite>), grid resolution (<cite>dx</cite>, <cite>dy</cite>),
+and number of time steps (<cite>nt</cite>).</p></li>
+<li><p><strong>init_method</strong> (<em>callable</em>) – A function that initializes the state variables, returning <cite>C</cite>, <cite>D</cite>, <cite>k</cite>, <cite>alphax</cite>, <cite>alphay</cite>,
+<cite>betax</cite>, and <cite>betay</cite>.</p></li>
+<li><p><strong>C_0_cst</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, maintains the initial constant value of <cite>C</cite> throughout the simulation (default: True).</p></li>
+<li><p><strong>save_last_only</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, only saves the final state of the simulation (default: False).</p></li>
+<li><p><strong>C0</strong> (<em>2D np.ndarray</em><em>, </em><em>optional</em>) – An optional initial concentration array to override the default initialization.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list containing the concentration fields at each saved time step. If <cite>save_last_only</cite> is True,
+only the final state is saved.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of 2D np.ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the stability criterion is not respected.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The function uses an explicit Euler method to solve the diffusion equation. The stability criterion is checked
+before the simulation begins using the <cite>crit_stab</cite> function. The total amount of substance in the system is
+printed before and after the simulation.</p>
+<p class="rubric">Examples</p>
+<p>To run a simulation with default parameters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">OxyGenie.diffusion</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;Lx&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;Ly&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="s2">&quot;nt&quot;</span><span class="p">:</span> <span class="mi">2500</span><span class="p">,</span> <span class="s2">&quot;nx&quot;</span><span class="p">:</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;ny&quot;</span><span class="p">:</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;initial_concentration&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">simparams</span> <span class="o">=</span> <span class="n">SimulationParams</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">simparams</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span><span class="n">simparams</span><span class="o">.</span><span class="n">ny</span><span class="p">))</span>
+<span class="n">C</span><span class="p">[</span><span class="mi">120</span><span class="p">:</span><span class="mi">130</span><span class="p">,</span> <span class="mi">120</span><span class="p">:</span><span class="mi">130</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">simparams</span><span class="o">.</span><span class="n">ny</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">simparams</span><span class="o">.</span><span class="n">nx</span><span class="p">))</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">((</span><span class="n">X</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">Y</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">simparams</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">simparams</span><span class="o">.</span><span class="n">ny</span><span class="p">))</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">run_simulation</span><span class="p">(</span><span class="n">simparams</span><span class="p">,</span> <span class="n">FromCustom</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">k</span><span class="p">),</span> <span class="n">C_0_cst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">Simu_plot</span><span class="o">.</span><span class="n">simple</span><span class="p">(</span><span class="n">simparams</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../api_reference.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">API Reference</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="OxyGenie.learn.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">OxyGenie.learn</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-contents">Module contents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.FromCustom"><code class="docutils literal notranslate"><span class="pre">FromCustom</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.FromIMG"><code class="docutils literal notranslate"><span class="pre">FromIMG</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.FromPGVNet"><code class="docutils literal notranslate"><span class="pre">FromPGVNet</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.Simu_plot"><code class="docutils literal notranslate"><span class="pre">Simu_plot</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.Simu_plot.anim"><code class="docutils literal notranslate"><span class="pre">Simu_plot.anim()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.Simu_plot.anim_vect"><code class="docutils literal notranslate"><span class="pre">Simu_plot.anim_vect()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.Simu_plot.champ_vect"><code class="docutils literal notranslate"><span class="pre">Simu_plot.champ_vect()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.Simu_plot.simple"><code class="docutils literal notranslate"><span class="pre">Simu_plot.simple()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.SimulationParams"><code class="docutils literal notranslate"><span class="pre">SimulationParams</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.SimulationParams.Lx"><code class="docutils literal notranslate"><span class="pre">SimulationParams.Lx</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.SimulationParams.Ly"><code class="docutils literal notranslate"><span class="pre">SimulationParams.Ly</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.SimulationParams.T"><code class="docutils literal notranslate"><span class="pre">SimulationParams.T</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.SimulationParams.dt"><code class="docutils literal notranslate"><span class="pre">SimulationParams.dt</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.SimulationParams.dx"><code class="docutils literal notranslate"><span class="pre">SimulationParams.dx</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.SimulationParams.dy"><code class="docutils literal notranslate"><span class="pre">SimulationParams.dy</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.SimulationParams.nt"><code class="docutils literal notranslate"><span class="pre">SimulationParams.nt</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.SimulationParams.nx"><code class="docutils literal notranslate"><span class="pre">SimulationParams.nx</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.SimulationParams.ny"><code class="docutils literal notranslate"><span class="pre">SimulationParams.ny</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.F"><code class="docutils literal notranslate"><span class="pre">F()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.N_tot"><code class="docutils literal notranslate"><span class="pre">N_tot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.compute_step_euler"><code class="docutils literal notranslate"><span class="pre">compute_step_euler()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.compute_step_rk4"><code class="docutils literal notranslate"><span class="pre">compute_step_rk4()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.crit_stab"><code class="docutils literal notranslate"><span class="pre">crit_stab()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#OxyGenie.diffusion.run_simulation"><code class="docutils literal notranslate"><span class="pre">run_simulation()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/code/OxyGenie.diffusion.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, A. CORBILLET, I. TOUAIMIA.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
