@@ -5,3 +5,18 @@ scikit-image==0.24.0
 torch==2.2.2
 torchvision==0.17.2
 tqdm==4.66.6
+sphinx
+pydata-sphinx-theme
+sphinx
+sphinx-design
+# sphinx-inline-tabs
+sphinx-copybutton
+sphinx-automodapi
+# numpydoc
+sphinx-favicon
+sphinx-autoapi
+# sphinx-design
+# sphinx-inline-tabs
+sphinx-copybutton
+sphinx-automodapi
+# numpydoc
