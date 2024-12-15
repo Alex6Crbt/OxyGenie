@@ -1,8 +1,6 @@
 dataset/
 dataset2/
 # docs/
-_static/simu*
-_static/un*
 
 model_weights_*
 model2_weights_*
