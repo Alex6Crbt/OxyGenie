@@ -1,6 +1,7 @@
 dataset/
 dataset2/
-docs/
+# docs/
+*_static/
 model_weights_*
 model2_weights_*
 tes*
